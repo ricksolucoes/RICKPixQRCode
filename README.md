@@ -1,0 +1,2 @@
+# RICKPixQRCode
+Gerador QRCode PIX
