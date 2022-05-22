@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{346F4484-ECFC-4AB3-9F41-44776E4B1A11}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="FMX\RICKPixQRCodeFMX.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\RICKPixQRCode.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="RICKPixQRCodeFMX">
+        <MSBuild Projects="FMX\RICKPixQRCodeFMX.dproj"/>
+    </Target>
+    <Target Name="RICKPixQRCodeFMX:Clean">
+        <MSBuild Projects="FMX\RICKPixQRCodeFMX.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RICKPixQRCodeFMX:Make">
+        <MSBuild Projects="FMX\RICKPixQRCodeFMX.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="RICKPixQRCode">
+        <MSBuild Projects="..\RICKPixQRCode.dproj"/>
+    </Target>
+    <Target Name="RICKPixQRCode:Clean">
+        <MSBuild Projects="..\RICKPixQRCode.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RICKPixQRCode:Make">
+        <MSBuild Projects="..\RICKPixQRCode.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="RICKPixQRCodeFMX;RICKPixQRCode"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="RICKPixQRCodeFMX:Clean;RICKPixQRCode:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="RICKPixQRCodeFMX:Make;RICKPixQRCode:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
