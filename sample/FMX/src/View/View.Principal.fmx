@@ -3,31 +3,300 @@ object PagePrincipal: TPagePrincipal
   Top = 0
   Caption = 'Form1'
   ClientHeight = 480
-  ClientWidth = 640
+  ClientWidth = 712
+  Position = ScreenCenter
+  Quality = HighPerformance
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
   DesignerMasterStyle = 0
-  object SpeedButton1: TSpeedButton
-    Position.X = 160.000000000000000000
-    Position.Y = 264.000000000000000000
-    Text = 'SpeedButton1'
+  object imgQRCode: TImage
+    MultiResBitmap = <
+      item
+      end>
+    Align = Center
+    Size.Width = 330.000000000000000000
+    Size.Height = 330.000000000000000000
+    Size.PlatformDefault = False
   end
-  object IdHTTP1: TIdHTTP
-    ProxyParams.BasicAuthentication = False
-    ProxyParams.ProxyPort = 0
-    Request.ContentLength = -1
-    Request.ContentRangeEnd = -1
-    Request.ContentRangeStart = -1
-    Request.ContentRangeInstanceLength = -1
-    Request.Accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
-    Request.BasicAuthentication = False
-    Request.UserAgent = 'Mozilla/3.0 (compatible; Indy Library)'
-    Request.Ranges.Units = 'bytes'
-    Request.Ranges = <>
-    HTTPOptions = [hoForceEncodeParams]
-    Left = 304
-    Top = 224
+  object TabControl: TTabControl
+    Align = Left
+    Size.Width = 337.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+    TabIndex = 0
+    TabOrder = 1
+    TabPosition = PlatformDefault
+    Sizes = (
+      337s
+      454s)
+    object tbiDados: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 54.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'Dados'
+      object btGerar: TSpeedButton
+        Align = Bottom
+        Cursor = crHandPoint
+        Position.Y = 416.000000000000000000
+        Size.Width = 337.000000000000000000
+        Size.Height = 38.000000000000000000
+        Size.PlatformDefault = False
+        Text = 'Gerar'
+        OnClick = btGerarClick
+      end
+      object edtNome: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Anchors = [akLeft, akTop, akRight]
+        StyleLookup = 'transparentedit'
+        TabOrder = 2
+        Position.X = 8.000000000000000000
+        Position.Y = 80.000000000000000000
+        Size.Width = 313.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        TextPrompt = 'Nome'
+        object lnNome: TLine
+          Align = Bottom
+          LineType = Bottom
+          Opacity = 0.300000011920929000
+          Position.Y = 21.000000000000000000
+          Size.Width = 313.000000000000000000
+          Size.Height = 1.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Color = xFF918F8F
+        end
+      end
+      object edtCidade: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Anchors = [akLeft, akTop, akRight]
+        StyleLookup = 'transparentedit'
+        TabOrder = 1
+        Position.X = 8.000000000000000000
+        Position.Y = 128.000000000000000000
+        Size.Width = 313.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        TextPrompt = 'Cidade'
+        object lnCidade: TLine
+          Align = Bottom
+          LineType = Bottom
+          Opacity = 0.300000011920929000
+          Position.Y = 21.000000000000000000
+          Size.Width = 313.000000000000000000
+          Size.Height = 1.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Color = xFF918F8F
+        end
+      end
+      object cbxGeradorQrCode: TComboBox
+        Items.Strings = (
+          '(API) Gerador de QrCode Pix - (Estatico)'
+          '(API) Gerador de QrCode Pix - (Dinamico)'
+          '(API) Gerador de QrCode Pix - (BrCode)')
+        ItemIndex = 0
+        Position.X = 8.000000000000000000
+        Position.Y = 40.000000000000000000
+        Size.Width = 313.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        OnChange = cbxGeradorQrCodeChange
+        object lblGeradorQrCode: TLabel
+          Position.Y = -19.000000000000000000
+          Size.Width = 313.000000000000000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Gerador QrCode'
+          TabOrder = 7
+        end
+      end
+      object TabControlpixComplemento: TTabControl
+        Position.X = 8.000000000000000000
+        Position.Y = 158.000000000000000000
+        Size.Width = 313.000000000000000000
+        Size.Height = 107.000000000000000000
+        Size.PlatformDefault = False
+        TabIndex = 1
+        TabOrder = 4
+        TabPosition = None
+        Sizes = (
+          313s
+          107s
+          313s
+          107s
+          313s
+          107s)
+        object tiEstatico: TTabItem
+          CustomIcon = <
+            item
+            end>
+          IsSelected = False
+          Size.Width = 8.000000000000000000
+          Size.Height = 8.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = ''
+          TabOrder = 0
+          Text = 'Estatico'
+          object edtValor: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Anchors = [akLeft, akTop, akRight]
+            StyleLookup = 'transparentedit'
+            TabOrder = 1
+            Position.X = 8.000000000000000000
+            Position.Y = 56.000000000000000000
+            Size.Width = 297.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+            TextPrompt = 'Valor'
+            object Line2: TLine
+              Align = Bottom
+              LineType = Bottom
+              Opacity = 0.300000011920929000
+              Position.Y = 21.000000000000000000
+              Size.Width = 297.000000000000000000
+              Size.Height = 1.000000000000000000
+              Size.PlatformDefault = False
+              Stroke.Color = xFF918F8F
+            end
+          end
+          object cbxTipo: TComboBox
+            Items.Strings = (
+              'Telefone'
+              'CPF'
+              'CNPJ'
+              'EMail'
+              'Aleatoria')
+            ItemIndex = 0
+            Position.X = 8.000000000000000000
+            Position.Y = 24.000000000000000000
+            Size.Width = 81.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 5
+            OnChange = cbxTipoChange
+          end
+          object edtChavePix: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Anchors = [akLeft, akTop, akRight]
+            StyleLookup = 'transparentedit'
+            TabOrder = 3
+            Position.X = 96.000000000000000000
+            Position.Y = 24.000000000000000000
+            Size.Width = 209.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+            TextPrompt = 'Chave Pix Telefone'
+            object lnChavePix: TLine
+              Align = Bottom
+              LineType = Bottom
+              Opacity = 0.300000011920929000
+              Position.Y = 21.000000000000000000
+              Size.Width = 209.000000000000000000
+              Size.Height = 1.000000000000000000
+              Size.PlatformDefault = False
+              Stroke.Color = xFF918F8F
+            end
+          end
+        end
+        object tiDinamico: TTabItem
+          CustomIcon = <
+            item
+            end>
+          IsSelected = True
+          Size.Width = 8.000000000000000000
+          Size.Height = 8.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = ''
+          TabOrder = 0
+          Text = 'Dinamico'
+          object MemoRetornoPix: TMemo
+            Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+            AutoSelect = True
+            DataDetectorTypes = []
+            TextSettings.WordWrap = True
+            Align = Client
+            Margins.Left = 5.000000000000000000
+            Margins.Right = 5.000000000000000000
+            Margins.Bottom = 5.000000000000000000
+            Size.Width = 303.000000000000000000
+            Size.Height = 75.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'memostyle'
+            TabOrder = 2
+            ParentShowHint = False
+            ShowHint = False
+            Viewport.Width = 299.000000000000000000
+            Viewport.Height = 71.000000000000000000
+          end
+          object lblRetornoPix: TLabel
+            Align = Top
+            Margins.Left = 5.000000000000000000
+            Margins.Top = 5.000000000000000000
+            Margins.Right = 5.000000000000000000
+            Margins.Bottom = 5.000000000000000000
+            Position.X = 5.000000000000000000
+            Position.Y = 5.000000000000000000
+            Size.Width = 303.000000000000000000
+            Size.Height = 17.000000000000000000
+            Size.PlatformDefault = False
+            Text = 'Retorno do Pix'
+            TabOrder = 3
+          end
+        end
+        object tiBrCode: TTabItem
+          CustomIcon = <
+            item
+            end>
+          IsSelected = False
+          Size.Width = 8.000000000000000000
+          Size.Height = 8.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = ''
+          TabOrder = 0
+          Text = 'BrCode'
+          object MemoPixCopiaCola: TMemo
+            Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+            AutoSelect = True
+            DataDetectorTypes = []
+            TextSettings.WordWrap = True
+            Align = Client
+            Margins.Left = 5.000000000000000000
+            Margins.Right = 5.000000000000000000
+            Margins.Bottom = 5.000000000000000000
+            Size.Width = 303.000000000000000000
+            Size.Height = 75.000000000000000000
+            Size.PlatformDefault = False
+            StyleLookup = 'memostyle'
+            TabOrder = 2
+            ParentShowHint = False
+            ShowHint = False
+            Viewport.Width = 299.000000000000000000
+            Viewport.Height = 71.000000000000000000
+          end
+          object lblPixCopiaCola: TLabel
+            Align = Top
+            Margins.Left = 5.000000000000000000
+            Margins.Top = 5.000000000000000000
+            Margins.Right = 5.000000000000000000
+            Margins.Bottom = 5.000000000000000000
+            Position.X = 5.000000000000000000
+            Position.Y = 5.000000000000000000
+            Size.Width = 303.000000000000000000
+            Size.Height = 17.000000000000000000
+            Size.PlatformDefault = False
+            Text = 'Pix Copia Cola'
+            TabOrder = 3
+          end
+        end
+      end
+    end
   end
 end

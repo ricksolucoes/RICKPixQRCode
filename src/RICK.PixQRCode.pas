@@ -3,6 +3,12 @@ unit RICK.PixQRCode;
 interface
 
 uses
+  {$IFDEF MSWINDOWS}
+  Vcl.Graphics,
+  Vcl.Imaging.jpeg,
+  Vcl.Imaging.pngimage,
+  {$ENDIF}
+
   System.Classes,
   System.SysUtils,
 
@@ -20,11 +26,14 @@ type
   TTipoChave = RICK.PixQRCode.Types.TTipoChave;
 
   TRICKPixQRCode = class(TInterfacedObject, iPixQRCode, iPixQRCodeTipoChave,
-                          iPixQRCodeDados, iAPIGeraQRCodePIX)
+                          iPixQRCodeDados, iAPIGeraQRCodePIX, iImageQRCodePIX)
   private
     FIDHTTP                                     : TIdHTTP;
     FTipoChavePix                               : TTipoChave;
     FMemoryStream                               : TMemoryStream;
+    FPNG                                        : {$IFDEF MSWINDOWS}TPngImage{$ENDIF};
+    FJPGE                                       : {$IFDEF MSWINDOWS}TJPEGImage{$ENDIF};
+    FBitmap                                     : {$IFDEF MSWINDOWS}TBitmap{$ENDIF};
     FNome                                       : string;
     FCidade                                     : string;
     FValor                                      : string;
@@ -40,6 +49,8 @@ type
     function TipoChave                          : iPixQRCodeTipoChave;
     function Dados                              : iPixQRCodeDados;
     function APIGeraQRCodePIX                   : iAPIGeraQRCodePIX;
+    function Imagem                             : iImageQRCodePIX;
+    function ChavePixCopiaCola                  : string; overload;
 
 
     //Tipos de Chaves Pix
@@ -56,7 +67,7 @@ type
     function Valor(AValue: Double)              : iPixQRCodeDados; overload;
     function Valor(AValue: string)              : iPixQRCodeDados; overload;
     function ChavePix(AValue: string)           : iPixQRCodeDados;
-    function ChavePixCopiaCola(AValue: string)  : iPixQRCodeDados;
+    function ChavePixCopiaCola(AValue: string)  : iPixQRCodeDados; overload;
     function RetornoPix(AValue: string)         : iPixQRCodeDados;
 
     //API Gerar Code PIX - https://gerarqrcodepix.com.br/ - https://github.com/ceciliadeveza/gerarqrcodepix
@@ -64,7 +75,13 @@ type
     function Dinamico                           : iAPIGeraQRCodePIX;
     function BrCode                             : iAPIGeraQRCodePIX;
 
-    function &End                               : iPixQRCode;
+    //Imagem do Pix QRCode
+    function QRBitmap                           : TBitmap;
+    function QRJPEG                             : TJPEGImage;
+    function QRPNG                              : TPngImage;
+
+
+    function EndReturn                          : iPixQRCode;
 
     constructor Create;
   public
@@ -82,7 +99,7 @@ begin
   FTipoChavePix:= TTipoChave.EMail;
 end;
 
-function TRICKPixQRCode.&End: iPixQRCode;
+function TRICKPixQRCode.EndReturn: iPixQRCode;
 begin
   Result:= Self;
 end;
@@ -100,7 +117,8 @@ begin
     raise Exception.Create('Informe a cidade do recebedor do PIX');
 
   if FChavePix.Trim.IsEmpty then
-    raise Exception.Create('Informe a Chave Pix cadastrada em qualquer PSP');
+    raise Exception.Create(Format('Informe a Chave Pix (%s) cadastrada em qualquer PSP',
+                                    [FTipoChavePix.ToString]));
 
   LQueryParam:= Format('saida=qr&nome=%s&cidade=%s&chave=%s',
                       [FNome, FCidade, FChavePix]);
@@ -120,6 +138,15 @@ begin
   FIDHTTP.Request.Accept := 'image/png';
 
   FIDHTTP.Get(Format('%s%s', [_URL, AQueryParam]), FMemoryStream);
+
+  FPNG.LoadFromStream(FMemoryStream);
+  FBitmap.Assign(FPNG);
+  FJPGE.Assign(FPNG);
+end;
+
+function TRICKPixQRCode.Imagem: iImageQRCodePIX;
+begin
+  Result:= Self;
 end;
 
 function TRICKPixQRCode.Aleatoria: iPixQRCodeTipoChave;
@@ -132,6 +159,7 @@ function TRICKPixQRCode.APIGeraQRCodePIX: iAPIGeraQRCodePIX;
 begin
   Result:= Self;
 end;
+
 
 function TRICKPixQRCode.BrCode: iAPIGeraQRCodePIX;
 var
@@ -158,7 +186,7 @@ begin
     TTipoChave.Telefone   :
     begin
       if not LChave.Contains('+55') then
-        LChave:= Format('+55', [LChave]);
+        LChave:= Format('+55%s', [LChave]);
 
       LChave:= Format('+%s', [TRICKPixQrCodeUtils.GetSomenteNumero(LChave)]);
 
@@ -191,6 +219,11 @@ begin
   end;
 
   FChavePix:= LChave;
+end;
+
+function TRICKPixQRCode.ChavePixCopiaCola: string;
+begin
+  Result:= FChavePixCopiaCola;
 end;
 
 function TRICKPixQRCode.ChavePixCopiaCola(AValue: string): iPixQRCodeDados;
@@ -227,6 +260,15 @@ begin
   if not Assigned(FMemoryStream) then
     FMemoryStream := TMemoryStream.Create;
 
+  if not Assigned(FPNG) then
+    FPNG := {$IFDEF MSWINDOWS}TPngImage.Create{$ENDIF};
+
+  if not Assigned(FBitmap) then
+    FBitmap := {$IFDEF MSWINDOWS}TBitmap.Create{$ENDIF};
+
+  if not Assigned(FJPGE) then
+    FJPGE := {$IFDEF MSWINDOWS}TJPEGImage.Create{$ENDIF};
+
 end;
 
 function TRICKPixQRCode.Dados: iPixQRCodeDados;
@@ -241,6 +283,15 @@ begin
 
   if Assigned(FMemoryStream) then
     FMemoryStream.Free;
+
+  if Assigned(FPNG) then
+    FPNG.Free;
+
+  if Assigned(FBitmap) then
+    FBitmap.Free;
+
+  if Assigned(FJPGE) then
+    FJPGE.Free;
 
   inherited;
 end;
@@ -281,6 +332,21 @@ function TRICKPixQRCode.PathDLL(AValue: string): iPixQRCodeDados;
 begin
   Result:= Self;
   FPathDLL:= AValue;
+end;
+
+function TRICKPixQRCode.QRBitmap: TBitmap;
+begin
+  Result:= FBitmap;
+end;
+
+function TRICKPixQRCode.QRJPEG: TJPEGImage;
+begin
+  Result:= FJPGE;
+end;
+
+function TRICKPixQRCode.QRPNG: TPngImage;
+begin
+  Result:= FPNG;
 end;
 
 function TRICKPixQRCode.RetornoPix(AValue: string): iPixQRCodeDados;
