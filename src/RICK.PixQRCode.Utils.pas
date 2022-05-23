@@ -2,6 +2,12 @@
 unit RICK.PixQRCode.Utils;
 
 interface
+uses
+  {$IF CompilerVersion >= 23.0} // 23 is Delphi XE2
+  System.StrUtils;
+  {$ELSE} // VCL prior to XE2
+  StrUtils;
+  {$IFEND}
 type
   TRICKPixQrCodeUtils = class
   public
@@ -10,14 +16,36 @@ type
     class function IsValidEmail(const AValue: string): Boolean;
     class function IsValidCaracterEmail(const AValue: string): Boolean;
     class function GetSomenteNumero(const AValue: string): string;
+    class function CopyReverse(AValue: String; ACount, AIndex : Integer) : String; overload;
+    class function CopyReverse(AValue: String; ACount : Integer) : String; overload;
   end;
 implementation
 
 uses
-  System.Math,
-  System.SysUtils;
+  {$IF CompilerVersion >= 23.0} // 23 is Delphi XE2
+    System.Math,
+    System.SysUtils;
+  {$ELSE} // VCL prior to XE2
+    Math,
+    SysUtils;
+  {$IFEND}
 
 { TRICKPixQrCodeUtils }
+
+class function TRICKPixQrCodeUtils.CopyReverse(AValue: String;
+  ACount: Integer): String;
+begin
+  Result:= CopyReverse(AValue, ACount, 1);
+
+end;
+
+class function TRICKPixQrCodeUtils.CopyReverse(AValue: String; ACount,
+  AIndex: Integer): String;
+begin
+  Result := ReverseString(AValue);
+  Result := Copy(Result, AIndex, ACount);
+  Result := ReverseString(Result);
+end;
 
 class function TRICKPixQrCodeUtils.GetSomenteNumero(const AValue: string): string;
 var
@@ -52,7 +80,7 @@ begin
   {$ELSE}
     if not(AValue[I] in ['a' .. 'z', 'A' .. 'Z', '0' .. '9', '_', '-', '.']) then
       Exit;
-  {$ENDIF}
+  {$IFEND}
 
   Result := True;
 end;
@@ -69,7 +97,11 @@ begin
   LCNPJ:= GetSomenteNumero(ACNPJ);
 
 
+  {$IF CompilerVersion >= 23.0} // 23 is Delphi XE2
   if not (LCNPJ.Length = 14) then
+  {$ELSE} // VCL prior to XE2
+  if not (Length(LCNPJ) = 14) then
+  {$IFEND}
     Exit;
 
   { Conferindo se todos dígitos são iguais }
@@ -140,7 +172,11 @@ begin
 
   LCPF:= GetSomenteNumero(ACPF);
 
+  {$IF CompilerVersion >= 23.0} // 23 is Delphi XE2
   if not (LCPF.Length = 11) then
+  {$ELSE} // VCL prior to XE2
+  if not (Length(LCPF) = 11) then
+  {$IFEND}
     Exit;
 
   { Conferindo se todos dígitos são iguais }
