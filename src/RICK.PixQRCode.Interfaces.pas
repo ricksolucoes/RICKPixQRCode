@@ -18,6 +18,7 @@ uses
 
 type
   iPixQRCodeTipoChave             = interface;
+  iGeraQRCodePIX                  = interface;
   iPixQRCodeDados                 = interface;
   iAPIGeraQRCodePIX               = interface;
   iImageQRCodePIX                 = interface;
@@ -28,6 +29,7 @@ type
     function TipoChave                          : iPixQRCodeTipoChave;
     function Dados                              : iPixQRCodeDados;
     function APIGeraQRCodePIX                   : iAPIGeraQRCodePIX;
+    function GeraQRCodePIX                      : iGeraQRCodePIX;
     function Imagem                             : iImageQRCodePIX;
     function ChavePixCopiaCola                  : string; overload;
   end;
@@ -66,6 +68,15 @@ type
     function Estatico                           : iAPIGeraQRCodePIX;
     function Dinamico                           : iAPIGeraQRCodePIX;
     function BrCode                             : iAPIGeraQRCodePIX;
+
+    function EndReturn                          : iPixQRCode;
+
+  end;
+
+  iGeraQRCodePIX                  = interface
+    ['{FC27B8BD-DAB3-48F3-B611-8DE0E91AFC53}']
+    function DadosEstatico                      : iGeraQRCodePIX;
+    function CopiaCola                          : iGeraQRCodePIX;
 
     function EndReturn                          : iPixQRCode;
 

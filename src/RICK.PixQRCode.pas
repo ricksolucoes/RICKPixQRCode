@@ -9,19 +9,21 @@ uses
     Vcl.Imaging.pngimage,
     System.Classes,
     System.SysUtils,
+    RICK.QRCode,
   {$ELSE} // VCL prior to XE2
     Graphics,
     pngimage,
     JPEG ,
     Classes,
     SysUtils,
+    ACBrDFeReport,
+    ACBrDelphiZXingQRCode,
   {$IFEND}
 
 
   RICK.PixQRCode.Utils,
   RICK.PixQRCode.Types,
   RICK.PixQRCode.Interfaces,
-
 
 
   IdSSL,
@@ -38,7 +40,8 @@ uses
 
 type
   TRICKPixQRCode = class(TInterfacedObject, iPixQRCode, iPixQRCodeTipoChave,
-                          iPixQRCodeDados, iAPIGeraQRCodePIX, iImageQRCodePIX)
+                          iPixQRCodeDados, iAPIGeraQRCodePIX, iImageQRCodePIX,
+                          iGeraQRCodePIX)
   private
     FIdSSL                                      : TIdSSLIOHandlerSocketOpenSSL;
     FIDHTTP                                     : TIdHTTP;
@@ -55,14 +58,21 @@ type
     FRetornoPix                                 : string;
     FPathDLL                                    : string;
     FIdentificador                              : string;
+    FSizeBrCode                                 : Integer;
 
     procedure GetAPIGerarQRCode(AQueryParam:string);
+    {$IF CompilerVersion >= 23.0} // 23 is Delphi XE2
+    procedure GetGerarQRCode(AWidth, AHeight: Integer; AChavePix: String;
+      ACanvas: TCanvas);
+    {$IFEND}
+    procedure GetGerarChaveQRCode;
 
   protected
     function PathDLL(AValue: string)            : iPixQRCodeDados;
     function TipoChave                          : iPixQRCodeTipoChave;
     function Dados                              : iPixQRCodeDados;
     function APIGeraQRCodePIX                   : iAPIGeraQRCodePIX;
+    function GeraQRCodePIX                      : iGeraQRCodePIX;
     function Imagem                             : iImageQRCodePIX;
     function ChavePixCopiaCola                  : string; overload;
 
@@ -87,13 +97,19 @@ type
     function ChavePixCopiaCola(AValue: string)  : iPixQRCodeDados; overload;
     function RetornoPix(AValue: string)         : iPixQRCodeDados;
     function Identificador(AValue: string)      : iPixQRCodeDados;
+    function SizeBrCode(AValue: Integer)        : iPixQRCodeDados;
 
     //API Gerar Code PIX - https://gerarqrcodepix.com.br/ - https://github.com/ceciliadeveza/gerarqrcodepix
     function Estatico                           : iAPIGeraQRCodePIX;
     function Dinamico                           : iAPIGeraQRCodePIX;
     function BrCode                             : iAPIGeraQRCodePIX;
 
-    //Imagem do Pix QRCode
+    //Gerar Code PIX
+    function DadosEstatico                      : iGeraQRCodePIX;
+    function CopiaCola                          : iGeraQRCodePIX;
+
+
+   //Imagem do Pix QRCode
     function QRBitmap                           : TBitmap;
     function QRJPEG                             : TJPEGImage;
   {$IF CompilerVersion >= 23.0} // 23 is Delphi XE2
@@ -179,9 +195,11 @@ begin
     LQueryParam:= Format('%s&txid=%s', [LQueryParam, FIdentificador]);
 
   GetAPIGerarQRCode(LQueryParam);
+end;
 
-
-
+function TRICKPixQRCode.GeraQRCodePIX: iGeraQRCodePIX;
+begin
+  Result:= Self;
 end;
 
 procedure TRICKPixQRCode.GetAPIGerarQRCode(AQueryParam:string);
@@ -208,6 +226,122 @@ begin
 
 end;
 
+procedure TRICKPixQRCode.GetGerarChaveQRCode;
+const
+  _PIXKEY = '00020126%s%s%s520400005303986%s5802BR%s%s%s%s6304';
+  _DOMINIOREVERSO = '0014br.gov.bcb.pix';
+var
+  LPIXKey : string;
+  LChavePix: string;
+  LTotalDominioReversoChavePix: string;
+  LValorPix: string;
+  LNome :string;
+  LCidade: string;
+  LIDPix: string;
+  LTotalIDCCT: string;
+begin
+  LValorPix:= EmptyStr;
+  LIDPix   := EmptyStr;
+
+  {$IF CompilerVersion >= 23.0} // 23 is Delphi XE2
+  if not FValor.Trim.IsEmpty then
+    LValorPix:= Format('54%2.2d%s', [FValor.Length, FValor]);
+
+  if FIdentificador.Trim.IsEmpty then
+    LIDPix:= '0503***'
+  else
+    LIDPix:= Format('05%2.2d%s', [FIdentificador.Length, FIdentificador]);
+
+  LTotalIDCCT:= Format('62%2.2d', [LIDPix.Length]);
+
+  LNome:= Format('59%2.2d%s', [FNome.Length, FNome]);
+  LCidade:= Format('60%2.2d%s', [FCidade.Length, FCidade]);
+  LChavePix := Format('01%2.2d%s', [FChavePix.Length, FChavePix]);
+
+  LTotalDominioReversoChavePix:= Format('%2.2d', [(_DOMINIOREVERSO.Length + LChavePix.Length)]);
+  {$ELSE} // VCL prior to XE2
+  if not (Trim(FValor) = EmptyStr) then
+    LValorPix:= Format('54%2.2d%s', [Length(FValor), FValor]);
+
+  if (Trim(FIdentificador) = EmptyStr)then
+    LIDPix:= '0503***'
+  else
+    LIDPix:= Format('05%2.2d%s', [Length(FIdentificador), FIdentificador]);
+
+  LTotalIDCCT:= Format('62%2.2d', [Length(LIDPix)]);
+
+  LNome:= Format('59%2.2d%s', [Length(FNome), FNome]);
+  LCidade:= Format('60%2.2d%s', [Length(FCidade), FCidade]);
+  LChavePix := Format('01%2.2d%s', [Length(FChavePix), FChavePix]);
+
+  LTotalDominioReversoChavePix:= Format('%2.2d', [(Length(_DOMINIOREVERSO) + Length(LChavePix))]);
+  {$IFEND}
+
+
+  LPIXKey:= Format(_PIXKEY, [LTotalDominioReversoChavePix,
+                              _DOMINIOREVERSO,
+                              LChavePix,
+                              LValorPix,
+                              LNome,
+                              LCidade,
+                              LTotalIDCCT,
+                              LIDPix]);
+
+  LPIXKey:= Format('%s%s', [LPIXKey, TRICKPixQrCodeUtils.GerarCRCPix(LPIXKey)]);
+
+  FChavePixCopiaCola:= LPIXKey;
+end;
+
+{$IF CompilerVersion >= 23.0} // 23 is Delphi XE2
+procedure TRICKPixQRCode.GetGerarQRCode(AWidth, AHeight: Integer; AChavePix: String;
+      ACanvas: TCanvas);
+var
+  LBitmap: TBitmap;
+  LRICKQRCode: TRICKQRCode;
+  LRows: Integer;
+  LColumns: Integer;
+  LScala: Double;
+begin
+  LBitmap := TBitmap.create;
+  try
+    LRICKQRCode := TRICKQRCode.create;
+    try
+      LRICKQRCode.Data := AChavePix;
+
+      // ajuta o tamanho do LBitmap para o tamanho do qrcode
+      LBitmap.SetSize(LRICKQRCode.Rows, LRICKQRCode.Columns);
+
+      // copia o qrcode para o LBitmap
+      for LRows := 0 to Pred(LRICKQRCode.Rows) do
+        for LColumns := 0 to Pred(LRICKQRCode.Columns) do
+          if LRICKQRCode.IsBlack[LRows, LColumns] then
+            LBitmap.Canvas.Pixels[LColumns, LRows] := clBlack
+          else
+            LBitmap.Canvas.Pixels[LColumns, LRows] := clWhite;
+
+      // prepara para redimensionar o qrcode para o tamanho do canvas
+      if (AWidth < LBitmap.Height) then
+      begin
+        LScala := AWidth / LBitmap.Width;
+      end
+      else
+      begin
+        LScala := AHeight / LBitmap.Height;
+      end;
+
+      // transfere o LBitmap para a imagem
+      ACanvas.StretchDraw(Rect(0, 0, Trunc(LScala * LBitmap.Width),
+        Trunc(LScala * LBitmap.Height)), LBitmap);
+
+    finally
+      LRICKQRCode.Free;
+    end;
+  finally
+    LBitmap.Free;
+  end;
+end;
+{$IFEND}
+
 function TRICKPixQRCode.Identificador(AValue: string): iPixQRCodeDados;
 begin
   Result:= Self;
@@ -218,14 +352,7 @@ begin
   FIdentificador:= Trim(AValue);
   {$IFEND}
 
-
-
-  {$IF CompilerVersion >= 23.0} // 23 is Delphi XE2
-      if (FIdentificador.Length > 25) then
-  {$ELSE} // VCL prior to XE2
-      if (Length(FIdentificador) > 25) then
-  {$IFEND}
-        raise Exception.Create('Ultrapassado o tamanho máximo (25) do identificados');
+  FIdentificador:= TRICKPixQrCodeUtils.CopyData(FIdentificador, 25);
 
 end;
 
@@ -361,7 +488,10 @@ end;
 function TRICKPixQRCode.Cidade(AValue: string): iPixQRCodeDados;
 begin
   Result:= Self;
-  FCidade:= AValue;
+  FCidade:= TRICKPixQrCodeUtils.CopyData(
+              TRICKPixQrCodeUtils.RemoveAcento(AValue),
+              15);
+
 end;
 
 function TRICKPixQRCode.CNPJ: iPixQRCodeTipoChave;
@@ -372,6 +502,37 @@ begin
   {$ELSE} // VCL prior to XE2
   FTipoChavePix:= tpCNPJ;
   {$IFEND}
+
+end;
+
+function TRICKPixQRCode.CopiaCola: iGeraQRCodePIX;
+var
+  LMemoryStream: TMemoryStream;
+begin
+  Result:= Self;
+  {$IF CompilerVersion >= 23.0} // 23 is Delphi XE2
+  if FChavePixCopiaCola.Trim.IsEmpty then
+  {$ELSE} // VCL prior to XE2
+  if Trim(FChavePixCopiaCola) = EmptyStr then
+  {$IFEND}
+    raise Exception.Create('Chave pix não informado');
+
+  {$IF CompilerVersion >= 23.0} // 23 is Delphi XE2
+  FBitmap.SetSize(FSizeBrCode, FSizeBrCode);
+  GetGerarQRCode(FBitmap.Width, FBitmap.Height, FChavePixCopiaCola, FBitmap.Canvas);
+  {$ELSE} // VCL prior to XE2
+  PintarQRCode(FChavePixCopiaCola, FBitmap, qrUTF8BOM);
+  {$IFEND}
+
+  FPNG.Assign(FBitmap);
+  FJPGE.Assign(FBitmap);
+  LMemoryStream:= TMemoryStream.Create;
+  try
+    FBitmap.SaveToStream(LMemoryStream);
+    FMemoryStream.LoadFromStream(LMemoryStream);
+  finally
+    FreeAndNil(LMemoryStream);
+  end;
 
 end;
 
@@ -406,11 +567,20 @@ begin
 
   if not Assigned(FIdSSL) then
     FIdSSL := TIdSSLIOHandlerSocketOpenSSL.Create(Nil);
+
+  FSizeBrCode := 250;
 end;
 
 function TRICKPixQRCode.Dados: iPixQRCodeDados;
 begin
   Result:= Self;
+end;
+
+function TRICKPixQRCode.DadosEstatico: iGeraQRCodePIX;
+begin
+  Result:= Self;
+  GetGerarChaveQRCode;
+  CopiaCola;
 end;
 
 destructor TRICKPixQRCode.Destroy;
@@ -477,7 +647,9 @@ end;
 function TRICKPixQRCode.Nome(AValue: string): iPixQRCodeDados;
 begin
   Result:= Self;
-  FNome:= AValue;
+  FNome:= TRICKPixQrCodeUtils.CopyData(
+            TRICKPixQrCodeUtils.RemoveAcento(AValue),
+            25);
 end;
 
 function TRICKPixQRCode.PathDLL(AValue: string): iPixQRCodeDados;
@@ -516,6 +688,12 @@ function TRICKPixQRCode.RetornoPix(AValue: string): iPixQRCodeDados;
 begin
   Result:= Self;
   FRetornoPix:= AValue;
+end;
+
+function TRICKPixQRCode.SizeBrCode(AValue: Integer): iPixQRCodeDados;
+begin
+  Result:= Self;
+  FSizeBrCode:= AValue;
 end;
 
 function TRICKPixQRCode.Telefone: iPixQRCodeTipoChave;

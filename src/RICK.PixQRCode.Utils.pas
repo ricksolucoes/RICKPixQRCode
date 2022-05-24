@@ -18,6 +18,11 @@ type
     class function GetSomenteNumero(const AValue: string): string;
     class function CopyReverse(AValue: String; ACount, AIndex : Integer) : String; overload;
     class function CopyReverse(AValue: String; ACount : Integer) : String; overload;
+    class function CopyData(AValue: String; ACount, AIndex : Integer) : String; overload;
+    class function CopyData(AValue: String; ACount : Integer) : String; overload;
+    class function RemoveAcento(AValue : string) : string;
+    class function CRC16CCITT(AValeu: string): WORD;
+    class function GerarCRCPix(Const AValue: string) :string;
   end;
 implementation
 
@@ -32,11 +37,48 @@ uses
 
 { TRICKPixQrCodeUtils }
 
+class function TRICKPixQrCodeUtils.CopyData(AValue: String;
+  ACount: Integer): String;
+begin
+  Result:= CopyData(AValue, ACount, 1);
+end;
+
+class function TRICKPixQrCodeUtils.CopyData(AValue: String; ACount,
+  AIndex: Integer): String;
+begin
+  Result:= Copy(AValue, AIndex, ACount);
+end;
+
 class function TRICKPixQrCodeUtils.CopyReverse(AValue: String;
   ACount: Integer): String;
 begin
   Result:= CopyReverse(AValue, ACount, 1);
 
+end;
+
+class function TRICKPixQrCodeUtils.CRC16CCITT(AValeu: string): WORD;
+const
+  LPolynomial = $1021;
+var
+  LCRC: WORD;
+  I, J: Integer;
+  LByte: Byte;
+  LBit, LC15: Boolean;
+begin
+  LCRC := $FFFF;
+  for I := 1 to length(AValeu) do
+  begin
+    LByte := Byte(AValeu[I]);
+    for J := 0 to 7 do
+    begin
+      LBit := (((LByte shr (7 - J)) and 1) = 1);
+      LC15 := (((LCRC shr 15) and 1) = 1);
+      LCRC := LCRC shl 1;
+      if (LC15 xor LBit) then
+        LCRC := LCRC xor LPolynomial;
+    end;
+  end;
+  Result := LCRC and $FFFF;
 end;
 
 class function TRICKPixQrCodeUtils.CopyReverse(AValue: String; ACount,
@@ -45,6 +87,11 @@ begin
   Result := ReverseString(AValue);
   Result := Copy(Result, AIndex, ACount);
   Result := ReverseString(Result);
+end;
+
+class function TRICKPixQrCodeUtils.GerarCRCPix(const AValue: string): string;
+begin
+  Result:= IntToHex(CRC16CCITT(AValue), 4);
 end;
 
 class function TRICKPixQrCodeUtils.GetSomenteNumero(const AValue: string): string;
@@ -256,5 +303,31 @@ begin
     Exit;
   Result := IsValidCaracterEmail(LNomeEmail) and IsValidCaracterEmail(LNomeDominio);
 end;
+
+class function TRICKPixQrCodeUtils.RemoveAcento(AValue: string): string;
+{$IF CompilerVersion >= 23.0} // 23 is Delphi XE2
+type
+  USAscii20127 = type AnsiString(20127);
+begin
+  Result := string(USAscii20127(AValue));
+end;
+{$ELSE} // VCL prior to XE2
+const
+  ComAcento = 'àâêôûãõáéíóúçüñıÀÂÊÔÛÃÕÁÉÍÓÚÇÜÑİ';
+  SemAcento = 'aaeouaoaeioucunyAAEOUAOAEIOUCUNY';
+var
+  x: Cardinal;
+begin;
+  for x := 1 to Length(AValue) do
+  try
+    if (Pos(AValue[x], ComAcento) <> 0) then
+      AValue[x] := SemAcento[ Pos(AValue[x], ComAcento) ];
+  except on E: Exception do
+    raise Exception.Create('Erro no processo.');
+  end;
+ 
+  Result := AValue;
+end;
+{$IFEND}
 
 end.

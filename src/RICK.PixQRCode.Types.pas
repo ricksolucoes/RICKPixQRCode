@@ -5,7 +5,10 @@ type
   {$IF CompilerVersion >= 23.0} // 23 is Delphi XE2
 {$SCOPEDENUMS ON}
   TTipoChave = (Null, Telefone, CPF, CNPJ, EMail, Aleatoria);
+  TQRCodeEncoding = (qrAuto, qrNumeric, qrAlphanumeric, qrISO88591, qrUTF8NoBOM, qrUTF8BOM);
 {$SCOPEDENUMS OFF}
+  T2DBooleanArray = array of array of Boolean;
+
   {$ELSE} // VCL prior to XE2
   TTipoChave = (tpNull, tpTelefone, tpCPF, tpCNPJ, tpEMail, tpAleatoria);
   {$IFEND}

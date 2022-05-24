@@ -37,18 +37,19 @@ type
     cbxTipo: TComboBox;
     edtChavePix: TLabeledEdit;
     edtValor: TLabeledEdit;
-    lblPixCopiaCola: TLabel;
-    MemoPixCopiaCola: TMemo;
-    MemoRetornoPix: TMemo;
-    lblRetornoPix: TLabel;
     btGerar: TSpeedButton;
     imgQRCode: TImage;
     MemoChaveCopiaCola: TMemo;
     edtIdentificador: TLabeledEdit;
+    lblRetornoPix: TLabel;
+    lblPixCopiaCola: TLabel;
+    MemoRetornoPix: TMemo;
+    MemoPixCopiaCola: TMemo;
     procedure FormCreate(Sender: TObject);
     procedure btGerarClick(Sender: TObject);
     procedure cbxTipoChange(Sender: TObject);
     procedure cbxGeradorQrCodeChange(Sender: TObject);
+    procedure PageControlComplementoChange(Sender: TObject);
   private
     FPixQRCode : iPixQRCode;
 
@@ -105,11 +106,35 @@ begin
           .BrCode
         .EndReturn;
     end;
+    3:
+    begin
+      FPixQRCode
+        .Dados
+          .ChavePixCopiaCola(MemoPixCopiaCola.Lines.Text)
+        .EndReturn
+        .GeraQRCodePIX
+          .CopiaCola
+        .EndReturn;
+    end;
+    4:
+    begin
+      FPixQRCode
+        .Dados
+          .Nome(edtNome.Text)
+          .Cidade(edtCidade.Text)
+          .ChavePix(edtChavePix.Text)
+          .Valor(edtValor.Text)
+          .Identificador(edtIdentificador.Text)
+        .EndReturn
+        .GeraQRCodePIX
+          .DadosEstatico
+        .EndReturn;
+    end;
   end;
 
   imgQRCode.Picture.Bitmap.Assign(FPixQRCode.Imagem.QRPNG);
-
   MemoChaveCopiaCola.Lines.Add(FPixQRCode.ChavePixCopiaCola);
+
 
 end;
 
@@ -117,16 +142,16 @@ procedure TPagePrincipal.cbxGeradorQrCodeChange(Sender: TObject);
 begin
   PageControl.Enabled:= False;
   try
-    edtNome.ReadOnly := False;
-    edtCidade.ReadOnly:= False;
+    edtNome.ReadOnly    := False;
+    edtCidade.ReadOnly  := False;
 
     case TComboBox(Sender).ItemIndex of
-      0: PageControlComplemento.ActivePage:= tsEstatico;
+      0, 4: PageControlComplemento.ActivePage:= tsEstatico;
       1: PageControlComplemento.ActivePage:= tsDinamico;
-      2:
+      2, 3:
       begin
-        edtNome.ReadOnly := True;
-        edtCidade.ReadOnly:= True;
+        edtNome.ReadOnly    := True;
+        edtCidade.ReadOnly  := True;
         PageControlComplemento.ActivePage:= tsBrCode;
       end;
     end;
@@ -165,6 +190,17 @@ begin
   MemoPixCopiaCola.Lines.Add('00020126490014br.gov.bcb.pix0127serpentedodeserto@gmail.com52040000530398654040.015802BR5921RICARDO ROCHA PEREIRA6011NOVA IGUACU62150511DividaTeste63042EA0');
   {$ENDIF}
 
+end;
+
+procedure TPagePrincipal.PageControlComplementoChange(Sender: TObject);
+begin
+  case cbxGeradorQrCode.ItemIndex of
+    0: TPageControl(Sender).ActivePage:= tsEstatico;
+    1: TPageControl(Sender).ActivePage:= tsDinamico;
+    2: TPageControl(Sender).ActivePage:= tsBrCode;
+    3: TPageControl(Sender).ActivePage:= tsBrCode;
+    4: TPageControl(Sender).ActivePage:= tsEstatico;
+  end;
 end;
 
 end.

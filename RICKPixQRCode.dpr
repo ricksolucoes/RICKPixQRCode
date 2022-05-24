@@ -9,7 +9,8 @@ uses
   RICK.PixQRCode.Interfaces in 'src\RICK.PixQRCode.Interfaces.pas',
   RICK.PixQRCode in 'src\RICK.PixQRCode.pas',
   RICK.PixQRCode.Types in 'src\RICK.PixQRCode.Types.pas',
-  RICK.PixQRCode.Utils in 'src\RICK.PixQRCode.Utils.pas';
+  RICK.PixQRCode.Utils in 'src\RICK.PixQRCode.Utils.pas',
+  RICK.QRCode in 'src\RICK.QRCode.pas';
 
 begin
   try

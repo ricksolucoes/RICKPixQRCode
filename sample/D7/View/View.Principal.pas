@@ -25,17 +25,18 @@ type
     cbxTipo: TComboBox;
     edtChavePix: TLabeledEdit;
     edtValor: TLabeledEdit;
-    Label1: TLabel;
-    MemoPixCopiaCola: TMemo;
-    MemoRetornoPix: TMemo;
-    lblRetornoPix: TLabel;
     btGerar: TSpeedButton;
     MemoChaveCopiaCola: TMemo;
     edtIdentificador: TLabeledEdit;
+    MemoPixCopiaCola: TMemo;
+    Label1: TLabel;
+    lblRetornoPix: TLabel;
+    MemoRetornoPix: TMemo;
     procedure FormCreate(Sender: TObject);
     procedure btGerarClick(Sender: TObject);
     procedure cbxTipoChange(Sender: TObject);
     procedure cbxGeradorQrCodeChange(Sender: TObject);
+    procedure PageControlComplementoChange(Sender: TObject);
   private
     FPixQRCode : iPixQRCode;
 
@@ -91,7 +92,7 @@ begin
         .Dados
           .Nome(edtNome.Text)
           .Cidade(edtCidade.Text)
-          .RetornoPix(MemoRetornoPix.Text)
+          .RetornoPix(MemoRetornoPix.Lines.Text)
         .EndReturn
         .APIGeraQRCodePIX
           .Dinamico
@@ -105,6 +106,30 @@ begin
         .EndReturn
         .APIGeraQRCodePIX
           .BrCode
+        .EndReturn;
+    end;
+    3:
+    begin
+      FPixQRCode
+        .Dados
+          .ChavePixCopiaCola(MemoPixCopiaCola.Text)
+        .EndReturn
+        .GeraQRCodePIX
+          .CopiaCola
+        .EndReturn;
+    end;
+    4:
+    begin
+      FPixQRCode
+        .Dados
+          .Nome(edtNome.Text)
+          .Cidade(edtCidade.Text)
+          .ChavePix(edtChavePix.Text)
+          .Valor(edtValor.Text)
+          .Identificador(edtIdentificador.Text)
+        .EndReturn
+        .GeraQRCodePIX
+          .DadosEstatico
         .EndReturn;
     end;
   end;
@@ -134,9 +159,9 @@ begin
     edtCidade.ReadOnly:= False;
 
     case TComboBox(Sender).ItemIndex of
-      0: PageControlComplemento.ActivePage:= tsEstatico;
+      0, 4: PageControlComplemento.ActivePage:= tsEstatico;
       1: PageControlComplemento.ActivePage:= tsDinamico;
-      2:
+      2, 3:
       begin
         edtNome.ReadOnly := True;
         edtCidade.ReadOnly:= True;
@@ -147,6 +172,17 @@ begin
     PageControl.Enabled:= True;
   end;
 
+end;
+
+procedure TPagePrincipal.PageControlComplementoChange(Sender: TObject);
+begin
+  case cbxGeradorQrCode.ItemIndex of
+    0: TPageControl(Sender).ActivePage:= tsEstatico;
+    1: TPageControl(Sender).ActivePage:= tsDinamico;
+    2: TPageControl(Sender).ActivePage:= tsBrCode;
+    3: TPageControl(Sender).ActivePage:= tsBrCode;
+    4: TPageControl(Sender).ActivePage:= tsEstatico;
+  end;
 end;
 
 end.

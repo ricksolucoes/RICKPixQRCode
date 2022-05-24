@@ -36,8 +36,6 @@ object PagePrincipal: TPagePrincipal
     TabOrder = 0
     object tsDados: TTabSheet
       Caption = 'Dados'
-      ExplicitLeft = 8
-      ExplicitTop = 30
       object lblGeradorQrCode: TLabel
         Left = 0
         Top = 0
@@ -72,7 +70,9 @@ object PagePrincipal: TPagePrincipal
         Items.Strings = (
           '(API) Gerador de QrCode Pix - (Estatico)'
           '(API) Gerador de QrCode Pix - (Dinamico)'
-          '(API) Gerador de QrCode Pix - (BrCode)')
+          '(API) Gerador de QrCode Pix - (BrCode)'
+          'Gerar QR-Code Copia/Cola'
+          'Gerar QR-Code')
       end
       object edtNome: TLabeledEdit
         Left = 0
@@ -103,9 +103,9 @@ object PagePrincipal: TPagePrincipal
         MultiLine = True
         TabOrder = 3
         TabPosition = tpBottom
+        OnChange = PageControlComplementoChange
         object tsEstatico: TTabSheet
           Caption = 'Estatico'
-          ExplicitHeight = 79
           object cbxTipo: TComboBox
             Left = 0
             Top = 16
@@ -160,33 +160,6 @@ object PagePrincipal: TPagePrincipal
         object tsDinamico: TTabSheet
           Caption = 'Dinamico'
           ImageIndex = 1
-          ExplicitHeight = 79
-          object lblPixCopiaCola: TLabel
-            Left = 0
-            Top = 0
-            Width = 305
-            Height = 15
-            Align = alTop
-            Caption = 'Pix Copia Cola'
-            ExplicitWidth = 77
-          end
-          object MemoPixCopiaCola: TMemo
-            Left = 0
-            Top = 15
-            Width = 305
-            Height = 134
-            Align = alClient
-            TabOrder = 0
-            ExplicitLeft = 64
-            ExplicitTop = 8
-            ExplicitWidth = 185
-            ExplicitHeight = 89
-          end
-        end
-        object tsBrCode: TTabSheet
-          Caption = 'BRCode'
-          ImageIndex = 2
-          ExplicitHeight = 79
           object lblRetornoPix: TLabel
             Left = 0
             Top = 0
@@ -203,10 +176,27 @@ object PagePrincipal: TPagePrincipal
             Height = 134
             Align = alClient
             TabOrder = 0
-            ExplicitLeft = 64
-            ExplicitTop = 8
-            ExplicitWidth = 185
-            ExplicitHeight = 89
+          end
+        end
+        object tsBrCode: TTabSheet
+          Caption = 'BRCode'
+          ImageIndex = 2
+          object lblPixCopiaCola: TLabel
+            Left = 0
+            Top = 0
+            Width = 305
+            Height = 15
+            Align = alTop
+            Caption = 'Pix Copia Cola'
+            ExplicitWidth = 77
+          end
+          object MemoPixCopiaCola: TMemo
+            Left = 0
+            Top = 15
+            Width = 305
+            Height = 134
+            Align = alClient
+            TabOrder = 0
           end
         end
       end

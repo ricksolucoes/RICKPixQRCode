@@ -1,6 +1,6 @@
 object PagePrincipal: TPagePrincipal
-  Left = 231
-  Top = 128
+  Left = 331
+  Top = 147
   Width = 766
   Height = 519
   Caption = 'PagePrincipal'
@@ -68,17 +68,20 @@ object PagePrincipal: TPagePrincipal
         ItemHeight = 16
         ItemIndex = 0
         TabOrder = 0
+        Text = '(API) Gerador de QrCode Pix - (Estatico)'
         OnChange = cbxGeradorQrCodeChange
         Items.Strings = (
           '(API) Gerador de QrCode Pix - (Estatico)'
           '(API) Gerador de QrCode Pix - (Dinamico)'
-          '(API) Gerador de QrCode Pix - (BrCode)')
+          '(API) Gerador de QrCode Pix - (BrCode)'
+          'Gerar QR-Code Copia/Cola'
+          'Gerar QR-Code')
       end
       object edtNome: TLabeledEdit
         Left = 0
         Top = 72
         Width = 324
-        Height = 23
+        Height = 21
         EditLabel.Width = 28
         EditLabel.Height = 13
         EditLabel.Caption = 'Nome'
@@ -88,7 +91,7 @@ object PagePrincipal: TPagePrincipal
         Left = 0
         Top = 120
         Width = 324
-        Height = 23
+        Height = 21
         EditLabel.Width = 33
         EditLabel.Height = 13
         EditLabel.Caption = 'Cidade'
@@ -102,6 +105,7 @@ object PagePrincipal: TPagePrincipal
         ActivePage = tsEstatico
         TabOrder = 3
         TabPosition = tpBottom
+        OnChange = PageControlComplementoChange
         object tsEstatico: TTabSheet
           Caption = 'Estatico'
           object cbxTipo: TComboBox
@@ -148,7 +152,7 @@ object PagePrincipal: TPagePrincipal
             Left = 0
             Top = 111
             Width = 302
-            Height = 23
+            Height = 21
             EditLabel.Width = 217
             EditLabel.Height = 13
             EditLabel.Caption = 'Identificador da Opera'#231'ao (At'#233' 25 Caracteres)'
@@ -159,15 +163,15 @@ object PagePrincipal: TPagePrincipal
         object tsDinamico: TTabSheet
           Caption = 'Dinamico'
           ImageIndex = 1
-          object Label1: TLabel
+          object lblRetornoPix: TLabel
             Left = 0
             Top = 0
             Width = 313
             Height = 13
             Align = alTop
-            Caption = 'Pix Copia Cola'
+            Caption = 'Retorno Pix'
           end
-          object MemoPixCopiaCola: TMemo
+          object MemoRetornoPix: TMemo
             Left = 0
             Top = 13
             Width = 313
@@ -179,15 +183,15 @@ object PagePrincipal: TPagePrincipal
         object tsBrCode: TTabSheet
           Caption = 'BRCode'
           ImageIndex = 2
-          object lblRetornoPix: TLabel
+          object Label1: TLabel
             Left = 0
             Top = 0
             Width = 313
             Height = 13
             Align = alTop
-            Caption = 'Retorno Pix'
+            Caption = 'Pix Copia Cola'
           end
-          object MemoRetornoPix: TMemo
+          object MemoPixCopiaCola: TMemo
             Left = 0
             Top = 13
             Width = 313
