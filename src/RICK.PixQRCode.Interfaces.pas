@@ -57,6 +57,7 @@ type
     function ChavePixCopiaCola(AValue: string)  : iPixQRCodeDados; overload;
     function RetornoPix(AValue: string)         : iPixQRCodeDados;
     function Identificador(AValue: string)      : iPixQRCodeDados;
+    function SizeBrCode(AValue: Integer)        : iPixQRCodeDados;
 
     function EndReturn                          : iPixQRCode;
 

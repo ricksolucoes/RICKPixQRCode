@@ -153,6 +153,7 @@ var
 begin
   Result:= Self;
 
+
   {$IF CompilerVersion >= 23.0} // 23 is Delphi XE2
   if FNome.Trim.IsEmpty then
   {$ELSE} // VCL prior to XE2

@@ -7,7 +7,7 @@ uses
 
   RICK.PixQRCode,
   RICK.PixQRCode.Utils,
-  RICK.PixQRCode.Interfaces;
+  RICK.PixQRCode.Interfaces, frxpngimage;
 
 type
   TPagePrincipal = class(TForm)
@@ -32,11 +32,15 @@ type
     Label1: TLabel;
     lblRetornoPix: TLabel;
     MemoRetornoPix: TMemo;
+    imgLogo: TImage;
+    edtLogo: TLabeledEdit;
+    btCarregar: TSpeedButton;
     procedure FormCreate(Sender: TObject);
     procedure btGerarClick(Sender: TObject);
     procedure cbxTipoChange(Sender: TObject);
     procedure cbxGeradorQrCodeChange(Sender: TObject);
     procedure PageControlComplementoChange(Sender: TObject);
+    procedure btCarregarClick(Sender: TObject);
   private
     FPixQRCode : iPixQRCode;
 
@@ -46,6 +50,7 @@ var
   PagePrincipal: TPagePrincipal;
 
 implementation
+
 
 {$R *.dfm}
 
@@ -57,8 +62,10 @@ begin
   PageControlComplemento.TabPosition:= tpBottom;
   PageControlComplemento.ActivePage:= tsEstatico;
 
+  imgLogo.Picture.Bitmap:= nil;
   cbxTipo.ItemIndex:= 3;
   FPixQRCode.TipoChave.EMail;
+  edtLogo.Text := '.\assets\Logo.png';
   edtNome.Text := 'Ricardo Rocha Pereira';
   edtCidade.Text:= 'Rio de Janeiro';
   edtChavePix.Text := 'serpentedodeserto@gmail.com';
@@ -108,7 +115,7 @@ begin
           .BrCode
         .EndReturn;
     end;
-    3:
+    3, 5:
     begin
       FPixQRCode
         .Dados
@@ -118,7 +125,7 @@ begin
           .CopiaCola
         .EndReturn;
     end;
-    4:
+    4, 6:
     begin
       FPixQRCode
         .Dados
@@ -132,10 +139,18 @@ begin
           .DadosEstatico
         .EndReturn;
     end;
+  else
+    raise Exception.Create('Opção não configurada');
   end;
 
   imgQRCode.Picture.Bitmap.Assign(FPixQRCode.Imagem.QRJPEG);
   MemoChaveCopiaCola.Lines.Add(FPixQRCode.ChavePixCopiaCola);
+
+  imgLogo.Picture.Bitmap:= nil;
+  if cbxGeradorQrCode.ItemIndex in [5, 6] then
+    if FileExists(edtLogo.Text) then
+      imgLogo.Picture.LoadFromFile(edtLogo.Text);
+
 
 end;
 
@@ -159,9 +174,9 @@ begin
     edtCidade.ReadOnly:= False;
 
     case TComboBox(Sender).ItemIndex of
-      0, 4: PageControlComplemento.ActivePage:= tsEstatico;
+      0, 4, 6: PageControlComplemento.ActivePage:= tsEstatico;
       1: PageControlComplemento.ActivePage:= tsDinamico;
-      2, 3:
+      2, 3, 5:
       begin
         edtNome.ReadOnly := True;
         edtCidade.ReadOnly:= True;
@@ -182,6 +197,26 @@ begin
     2: TPageControl(Sender).ActivePage:= tsBrCode;
     3: TPageControl(Sender).ActivePage:= tsBrCode;
     4: TPageControl(Sender).ActivePage:= tsEstatico;
+    5: TPageControl(Sender).ActivePage:= tsBrCode;
+    6: TPageControl(Sender).ActivePage:= tsEstatico;
+  end;
+end;
+
+procedure TPagePrincipal.btCarregarClick(Sender: TObject);
+begin
+  if imgLogo.Tag = 1 then
+  begin
+    imgLogo.Tag := 0;
+    btCarregar.Caption := 'Carregar';
+    imgLogo.Picture.Bitmap:= nil;
+    Exit;
+  end;
+
+  if FileExists(edtLogo.Text) then
+  begin
+    imgLogo.Tag := 1;
+    btCarregar.Caption := 'Limpar';
+    imgLogo.Picture.LoadFromFile(edtLogo.Text);
   end;
 end;
 

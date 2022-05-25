@@ -90,7 +90,7 @@ MaxStackSize=1048576
 ImageBase=4194304
 ExeDescription=
 [Directories]
-OutputDir=
+OutputDir=.\lib
 UnitOutputDir=
 PackageDLLOutputDir=
 PackageDCPOutputDir=
@@ -146,6 +146,9 @@ Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
 [HistoryLists\hlSearchPath]
 Count=1
 Item0=.\..\..\src
+[HistoryLists\hlOutputDirectorry]
+Count=1
+Item0=.\lib
 [Exception Log]
 EurekaLog Version=6018
 Activate=1
