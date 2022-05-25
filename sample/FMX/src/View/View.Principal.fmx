@@ -3,7 +3,7 @@ object PagePrincipal: TPagePrincipal
   Top = 0
   Caption = 'Form1'
   ClientHeight = 480
-  ClientWidth = 712
+  ClientWidth = 750
   Position = ScreenCenter
   Quality = HighPerformance
   FormFactor.Width = 320
@@ -22,14 +22,14 @@ object PagePrincipal: TPagePrincipal
   end
   object TabControl: TTabControl
     Align = Left
-    Size.Width = 337.000000000000000000
+    Size.Width = 335.000000000000000000
     Size.Height = 480.000000000000000000
     Size.PlatformDefault = False
     TabIndex = 0
     TabOrder = 1
     TabPosition = PlatformDefault
     Sizes = (
-      337s
+      335s
       454s)
     object tbiDados: TTabItem
       CustomIcon = <
@@ -42,11 +42,13 @@ object PagePrincipal: TPagePrincipal
       StyleLookup = ''
       TabOrder = 0
       Text = 'Dados'
+      ExplicitSize.cx = 54.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
       object btGerar: TSpeedButton
         Align = Bottom
         Cursor = crHandPoint
         Position.Y = 416.000000000000000000
-        Size.Width = 337.000000000000000000
+        Size.Width = 335.000000000000000000
         Size.Height = 38.000000000000000000
         Size.PlatformDefault = False
         Text = 'Gerar'
@@ -59,7 +61,7 @@ object PagePrincipal: TPagePrincipal
         TabOrder = 2
         Position.X = 8.000000000000000000
         Position.Y = 80.000000000000000000
-        Size.Width = 313.000000000000000000
+        Size.Width = 311.000000000000000000
         Size.Height = 22.000000000000000000
         Size.PlatformDefault = False
         TextPrompt = 'Nome'
@@ -68,7 +70,7 @@ object PagePrincipal: TPagePrincipal
           LineType = Bottom
           Opacity = 0.300000011920929000
           Position.Y = 21.000000000000000000
-          Size.Width = 313.000000000000000000
+          Size.Width = 311.000000000000000000
           Size.Height = 1.000000000000000000
           Size.PlatformDefault = False
           Stroke.Color = xFF918F8F
@@ -81,7 +83,7 @@ object PagePrincipal: TPagePrincipal
         TabOrder = 1
         Position.X = 8.000000000000000000
         Position.Y = 128.000000000000000000
-        Size.Width = 313.000000000000000000
+        Size.Width = 311.000000000000000000
         Size.Height = 22.000000000000000000
         Size.PlatformDefault = False
         TextPrompt = 'Cidade'
@@ -90,7 +92,7 @@ object PagePrincipal: TPagePrincipal
           LineType = Bottom
           Opacity = 0.300000011920929000
           Position.Y = 21.000000000000000000
-          Size.Width = 313.000000000000000000
+          Size.Width = 311.000000000000000000
           Size.Height = 1.000000000000000000
           Size.PlatformDefault = False
           Stroke.Color = xFF918F8F
@@ -124,7 +126,7 @@ object PagePrincipal: TPagePrincipal
         Size.Width = 313.000000000000000000
         Size.Height = 107.000000000000000000
         Size.PlatformDefault = False
-        TabIndex = 1
+        TabIndex = 2
         TabOrder = 4
         TabPosition = None
         Sizes = (
@@ -145,6 +147,8 @@ object PagePrincipal: TPagePrincipal
           StyleLookup = ''
           TabOrder = 0
           Text = 'Estatico'
+          ExplicitSize.cx = 8.000000000000000000
+          ExplicitSize.cy = 8.000000000000000000
           object edtValor: TEdit
             Touch.InteractiveGestures = [LongTap, DoubleTap]
             Anchors = [akLeft, akTop, akRight]
@@ -210,13 +214,15 @@ object PagePrincipal: TPagePrincipal
           CustomIcon = <
             item
             end>
-          IsSelected = True
+          IsSelected = False
           Size.Width = 8.000000000000000000
           Size.Height = 8.000000000000000000
           Size.PlatformDefault = False
           StyleLookup = ''
           TabOrder = 0
           Text = 'Dinamico'
+          ExplicitSize.cx = 8.000000000000000000
+          ExplicitSize.cy = 8.000000000000000000
           object MemoRetornoPix: TMemo
             Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
             AutoSelect = True
@@ -255,13 +261,15 @@ object PagePrincipal: TPagePrincipal
           CustomIcon = <
             item
             end>
-          IsSelected = False
+          IsSelected = True
           Size.Width = 8.000000000000000000
           Size.Height = 8.000000000000000000
           Size.PlatformDefault = False
           StyleLookup = ''
           TabOrder = 0
           Text = 'BrCode'
+          ExplicitSize.cx = 8.000000000000000000
+          ExplicitSize.cy = 8.000000000000000000
           object MemoPixCopiaCola: TMemo
             Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
             AutoSelect = True

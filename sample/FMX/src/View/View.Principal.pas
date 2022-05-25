@@ -1,10 +1,9 @@
 unit View.Principal;
 
 interface
-
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Surfaces, FMX.Graphics, FMX.Dialogs,
 
   RICK.PixQRCode,
   RICK.PixQRCode.Interfaces,
@@ -14,6 +13,7 @@ uses
   FMX.Edit, FMX.TabControl, FMX.ListBox, FMX.Memo.Types, FMX.ScrollBox, FMX.Memo
 
   ;
+
 
 type
   TPagePrincipal = class(TForm)
@@ -54,6 +54,7 @@ var
 implementation
 
 {$R *.fmx}
+
 
 procedure TPagePrincipal.cbxGeradorQrCodeChange(Sender: TObject);
 begin
@@ -165,8 +166,8 @@ begin
     end;
   end;
 
+  imgQRCode.Bitmap:= FPixQRCode.Imagem.QRBitmap;
 
-  imgQRCode.Bitmap.Assign(FPixQRCode.Imagem.QRBitmap);
 end;
 
 end.

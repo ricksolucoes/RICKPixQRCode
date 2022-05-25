@@ -9,6 +9,9 @@
         <Projects Include="..\RICKPixQRCode.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="VCL\RICKPixQRCodeVCL.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -35,14 +38,23 @@
     <Target Name="RICKPixQRCode:Make">
         <MSBuild Projects="..\RICKPixQRCode.dproj" Targets="Make"/>
     </Target>
+    <Target Name="RICKPixQRCodeVCL">
+        <MSBuild Projects="VCL\RICKPixQRCodeVCL.dproj"/>
+    </Target>
+    <Target Name="RICKPixQRCodeVCL:Clean">
+        <MSBuild Projects="VCL\RICKPixQRCodeVCL.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RICKPixQRCodeVCL:Make">
+        <MSBuild Projects="VCL\RICKPixQRCodeVCL.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="RICKPixQRCodeFMX;RICKPixQRCode"/>
+        <CallTarget Targets="RICKPixQRCodeFMX;RICKPixQRCode;RICKPixQRCodeVCL"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="RICKPixQRCodeFMX:Clean;RICKPixQRCode:Clean"/>
+        <CallTarget Targets="RICKPixQRCodeFMX:Clean;RICKPixQRCode:Clean;RICKPixQRCodeVCL:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="RICKPixQRCodeFMX:Make;RICKPixQRCode:Make"/>
+        <CallTarget Targets="RICKPixQRCodeFMX:Make;RICKPixQRCode:Make;RICKPixQRCodeVCL:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

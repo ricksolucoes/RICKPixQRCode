@@ -1,0 +1,505 @@
+EurekaLog 6.0.18
+
+Application:
+-------------------------------------------------------
+  1.1 Start Date      : Wed, 25 May 2022 11:36:03 -0300
+  1.2 Name/Description: RICKPixQRCodeD7.exe
+  1.3 Version Number  : 
+  1.4 Parameters      : 
+  1.5 Compilation Date: Wed, 25 May 2022 11:36:02 -0300
+  1.6 Up Time         : 11 seconds
+
+Exception:
+-----------------------------------------------------
+  2.1 Date          : Wed, 25 May 2022 11:36:15 -0300
+  2.2 Address       : 0053BE24
+  2.3 Module Name   : RICKPixQRCodeD7.exe
+  2.4 Module Version: 
+  2.5 Type          : Exception
+  2.6 Message       : Opção não configurada.
+  2.7 ID            : 5B9D
+  2.8 Count         : 1
+  2.9 Status        : New
+  2.10 Note         : 
+
+User:
+-----------------------------------------------------------------
+  3.1 ID        : Ricardo
+  3.2 Name      : Admin
+  3.3 Email     : 
+  3.4 Company   : 
+  3.5 Privileges: SeIncreaseQuotaPrivilege        - OFF
+                  SeSecurityPrivilege             - OFF
+                  SeTakeOwnershipPrivilege        - OFF
+                  SeLoadDriverPrivilege           - OFF
+                  SeSystemProfilePrivilege        - OFF
+                  SeSystemtimePrivilege           - OFF
+                  SeProfileSingleProcessPrivilege - OFF
+                  SeIncreaseBasePriorityPrivilege - OFF
+                  SeCreatePagefilePrivilege       - OFF
+                  SeBackupPrivilege               - OFF
+                  SeRestorePrivilege              - OFF
+                  SeShutdownPrivilege             - OFF
+                  SeDebugPrivilege                - OFF
+                  SeSystemEnvironmentPrivilege    - OFF
+                  SeChangeNotifyPrivilege         - ON
+                  SeRemoteShutdownPrivilege       - OFF
+                  SeUndockPrivilege               - OFF
+                  SeManageVolumePrivilege         - OFF
+                  SeImpersonatePrivilege          - ON
+                  SeCreateGlobalPrivilege         - ON
+                  SeIncreaseWorkingSetPrivilege   - OFF
+                  SeTimeZonePrivilege             - OFF
+                  SeCreateSymbolicLinkPrivilege   - OFF
+                  SeDelegateSessionUserImpersonatePrivilege - OFF
+
+Active Controls:
+---------------------------------------------------------
+  4.1 Form Class   : TAppBuilder
+  4.2 Form Text    : Delphi 7 - RICKPixQRCodeD7 [Running]
+  4.3 Control Class: TPagePrincipal
+  4.4 Control Text : PagePrincipal
+
+Computer:
+------------------------------------------------------------------------------------
+  5.1 Name          : PROG-SOARES
+  5.2 Total Memory  : 16262 Mb
+  5.3 Free Memory   : 7267 Mb
+  5.4 Total Disk    : 106,38 Gb
+  5.5 Free Disk     : 88,75 Gb
+  5.6 System Up Time: 5 days, 4 hours, 55 seconds
+  5.7 Processor     : Intel(R) Core(TM) i5-4460  CPU @ 3.20GHz
+  5.8 Display Mode  : 1366 x 768, 32 bit
+  5.9 Display DPI   : 96
+  5.10 Video Card   : Intel(R) HD Graphics 4600 (driver 20.19.15.4624 - RAM 1024 MB)
+  5.11 Printer      : Brother Color Type3 Class Driver (driver 10.0.19041.906)
+
+Operating System:
+------------------------------------------------
+  6.1 Type    : Microsoft Windows Vista (64 bit)
+  6.2 Build # : 9200
+  6.3 Update  : 
+  6.4 Language: Portuguese
+  6.5 Charset : 0
+
+Network:
+---------------------------------
+  7.1 IP Address: 010.001.001.105
+  7.2 Submask   : 255.255.255.000
+  7.3 Gateway   : 010.001.001.010
+  7.4 DNS 1     : 208.067.222.222
+  7.5 DNS 2     : 208.067.200.200
+  7.6 DHCP      : ON             
+
+Call Stack Information:
+--------------------------------------------------------------------------------------------------
+|Address |Module             |Unit               |Class         |Procedure/Method        |Line   |
+--------------------------------------------------------------------------------------------------
+|*Exception Thread: ID=11612; Priority=0; Class=; [Main]                                         |
+|------------------------------------------------------------------------------------------------|
+|0053BE24|RICKPixQRCodeD7.exe|View.Principal.pas |TPagePrincipal|btGerarClick            |141[64]|
+|75ABFF90|user32.dll         |                   |              |PeekMessageA            |       |
+|7718AB64|ntdll.dll          |                   |              |RtlRestoreLastWin32Error|       |
+|7716E740|ntdll.dll          |                   |              |RtlLeaveCriticalSection |       |
+|75AC7E7B|user32.dll         |                   |              |DispatchMessageA        |       |
+|75AC7E70|user32.dll         |                   |              |DispatchMessageA        |       |
+|0053CAAB|RICKPixQRCodeD7.exe|RICKPixQRCodeD7.dpr|              |                        |13[3]  |
+|7685FA27|KERNEL32.DLL       |                   |              |BaseThreadInitThunk     |       |
+--------------------------------------------------------------------------------------------------
+
+Modules Information:
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|Handle  |Name                  |Description                                             |Version        |Size   |Modified           |Path                                                                                                          |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|00400000|RICKPixQRCodeD7.exe   |                                                        |               |1500160|2022-05-25 11:36:04|D:\ProjetoPSB\PS\Cloud\Comum\modules\RICKPixQRCode\sample\D7\lib                                              |
+|46480000|security.dll          |Security Support Provider Interface                     |6.2.19041.1    |5120   |2019-12-07 06:09:32|C:\Windows\SYSTEM32                                                                                           |
+|62FA0000|wsock32.dll           |Windows Socket 32-Bit DLL                               |6.2.19041.1    |16384  |2019-12-07 06:09:16|C:\Windows\SYSTEM32                                                                                           |
+|6D3D0000|TextShaping.dll       |                                                        |               |611960 |2021-10-13 05:46:12|C:\Windows\SYSTEM32                                                                                           |
+|6D510000|wintypes.dll          |DLL dos Tipos de Base do Windows                        |6.2.19041.1682 |897112 |2022-05-11 04:49:18|C:\Windows\SYSTEM32                                                                                           |
+|6D5F0000|CoreMessaging.dll     |Microsoft CoreMessaging Dll                             |6.2.19041.867  |630592 |2021-03-09 19:39:28|C:\Windows\System32                                                                                           |
+|6D690000|CoreUIComponents.dll  |Microsoft Core UI Components Dll                        |6.2.19041.546  |2621720|2020-11-18 23:48:58|C:\Windows\System32                                                                                           |
+|6D910000|textinputframework.dll|"TextInputFramework.DYNLINK"                            |6.2.19041.1503 |753072 |2022-02-09 09:06:16|C:\Windows\SYSTEM32                                                                                           |
+|72740000|comctl32.dll          |Biblioteca de Controles Comuns                          |5.82.19041.1110|568144 |2021-07-09 08:47:22|C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_5.82.19041.1110_none_c0da534e38c01f4d|
+|72C90000|atcuf32.dll           |Bitdefender Active Threat Control Usermode Filter       |1.47.332.0     |1011192|2022-04-14 23:00:56|C:\Program Files\Bitdefender\Endpoint Security\atcuf\dlls_265889228790994898                                  |
+|72D90000|bdhkm32.dll           |BitDefender Hooking DLL                                 |1.4.221.0      |683552 |2022-04-14 23:00:58|C:\Program Files\Bitdefender\Endpoint Security\bdhkm\dlls_265889228830747566                                  |
+|73630000|uxtheme.dll           |Biblioteca UxTheme Microsoft                            |6.2.19041.1620 |454656 |2022-04-14 18:44:12|C:\Windows\system32                                                                                           |
+|736B0000|comctl32.DLL          |Biblioteca de Controles de Experiência do Usuário       |6.10.19041.1110|2152264|2021-07-09 08:47:26|C:\Windows\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_a8625c1886757984 |
+|73940000|IdnDL.dll             |Downlevel DLL                                           |6.2.19041.1    |8192   |2019-12-07 06:09:30|C:\Windows\SYSTEM32                                                                                           |
+|73C30000|version.dll           |Version Checking and File Installation Libraries        |6.2.19041.546  |27320  |2020-11-18 23:49:08|C:\Windows\SYSTEM32                                                                                           |
+|73EC0000|apphelp.dll           |Biblioteca de cliente de compatibilidade de aplicativos |6.2.19041.1320 |639488 |2021-11-16 18:23:48|C:\Windows\SYSTEM32                                                                                           |
+|74010000|SSPICLI.DLL           |Security Support Provider Interface                     |6.2.19041.1586 |123984 |2022-03-08 16:27:24|C:\Windows\SYSTEM32                                                                                           |
+|74040000|SECUR32.DLL           |Security Support Provider Interface                     |6.2.19041.546  |23040  |2020-11-18 23:49:08|C:\Windows\SYSTEM32                                                                                           |
+|740B0000|winspool.drv          |Driver de spooler do Windows                            |6.2.19041.1706 |445952 |2022-05-11 04:49:14|C:\Windows\SYSTEM32                                                                                           |
+|74190000|Fwpuclnt.dll          |API de Modo de Usuário FWP/IPsec                        |6.2.19041.1682 |347648 |2022-05-11 04:49:16|C:\Windows\SYSTEM32                                                                                           |
+|744E0000|iphlpapi.dll          |API de Auxiliar de IP                                   |6.2.19041.546  |196784 |2020-11-18 23:49:04|C:\Windows\SYSTEM32                                                                                           |
+|74610000|ntmarta.dll           |Provedor MARTA do Windows NT                            |6.2.19041.546  |152904 |2020-11-18 23:49:06|C:\Windows\SYSTEM32                                                                                           |
+|749B0000|kernel.appcore.dll    |AppModel API Host                                       |6.2.19041.546  |52672  |2020-11-18 23:49:00|C:\Windows\SYSTEM32                                                                                           |
+|75000000|win32u.dll            |Win32u                                                  |6.2.19041.1706 |94008  |2022-05-11 04:49:16|C:\Windows\System32                                                                                           |
+|75020000|msvcrt.dll            |Windows NT CRT DLL                                      |7.0.19041.546  |775256 |2020-11-18 23:48:54|C:\Windows\System32                                                                                           |
+|75250000|shell32.dll           |DLL comum do Shell do Windows                           |6.2.19041.1706 |6016696|2022-05-11 04:49:20|C:\Windows\System32                                                                                           |
+|75890000|ucrtbase.dll          |Microsoft® C Runtime Library                            |6.2.19041.789  |1181208|2021-03-02 12:42:14|C:\Windows\System32                                                                                           |
+|75AA0000|user32.dll            |DLL de cliente API de usuário Windows para multiusuários|6.2.19041.1706 |1681744|2022-05-11 04:49:16|C:\Windows\System32                                                                                           |
+|75C40000|RPCRT4.dll            |Tempo de Execução da Chamada de Procedimento Remoto     |6.2.19041.1706 |776824 |2022-05-11 04:49:14|C:\Windows\System32                                                                                           |
+|75D00000|bcryptPrimitives.dll  |Windows Cryptographic Primitives Library                |6.2.19041.1415 |383264 |2021-12-15 11:50:20|C:\Windows\System32                                                                                           |
+|75D60000|advapi32.dll          |API de base do Windows 32 avançada                      |6.2.19041.1682 |496360 |2022-05-11 04:49:14|C:\Windows\System32                                                                                           |
+|76270000|MSCTF.dll             |DLL de servidor MSCTF                                   |6.2.19041.1620 |862528 |2022-04-14 18:44:12|C:\Windows\System32                                                                                           |
+|763B0000|IMM32.DLL             |Multi-User Windows IMM32 API Client DLL                 |6.2.19041.546  |143056 |2020-11-18 23:49:06|C:\Windows\System32                                                                                           |
+|763E0000|sechost.dll           |Host for SCM/SDDL/LSA Lookup APIs                       |6.2.19041.1586 |477824 |2022-03-08 16:27:24|C:\Windows\System32                                                                                           |
+|765F0000|bcrypt.dll            |Biblioteca de Primitivos Criptografados do Windows      |6.2.19041.1023 |96032  |2021-06-16 10:51:14|C:\Windows\System32                                                                                           |
+|76610000|SHCORE.dll            |SHCORE                                                  |6.2.19041.1645 |545984 |2022-04-14 18:44:16|C:\Windows\System32                                                                                           |
+|767D0000|WS2_32.dll            |DLL de 32 bits do Windows Socket 2.0                    |6.2.19041.546  |397728 |2020-11-18 23:48:54|C:\Windows\System32                                                                                           |
+|76840000|KERNEL32.DLL          |DLL cliente da API BASE do Windows NT                   |6.2.19041.1706 |637744 |2022-05-11 04:49:14|C:\Windows\System32                                                                                           |
+|76930000|oleaut32.dll          |OLEAUT32.DLL                                            |6.2.19041.985  |606888 |2021-05-12 05:31:18|C:\Windows\System32                                                                                           |
+|769E0000|PSAPI.DLL             |Process Status Helper                                   |6.2.19041.546  |17016  |2020-11-18 23:49:04|C:\Windows\System32                                                                                           |
+|769F0000|gdi32full.dll         |GDI Client DLL                                          |6.2.19041.1706 |896104 |2022-05-11 04:49:18|C:\Windows\System32                                                                                           |
+|76AD0000|Normaliz.dll          |Unicode Normalization DLL                               |6.2.19041.546  |5120   |2020-11-18 23:49:06|C:\Windows\System32                                                                                           |
+|76AE0000|KERNELBASE.dll        |DLL cliente da API BASE do Windows NT                   |6.2.19041.1706 |2200768|2022-05-11 04:49:04|C:\Windows\System32                                                                                           |
+|76D00000|GDI32.dll             |GDI Client DLL                                          |6.2.19041.1620 |136336 |2022-04-14 18:44:12|C:\Windows\System32                                                                                           |
+|76DE0000|combase.dll           |Microsoft COM para Windows                              |6.2.19041.1682 |2630496|2022-05-11 04:49:18|C:\Windows\System32                                                                                           |
+|77060000|msvcp_win.dll         |Microsoft® C Runtime Library                            |6.2.19041.789  |495840 |2021-03-02 12:42:14|C:\Windows\System32                                                                                           |
+|77130000|ntdll.dll             |DLL de nível do NT                                      |6.2.19041.1682 |1698824|2022-05-11 04:49:14|C:\Windows\SYSTEM32                                                                                           |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Processes Information:
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|ID   |Name                       |Description                              |Version        |Memory|Priority    |Threads|Path                                                                                |
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|0    |[System Process]           |                                         |               |0     |            |4      |                                                                                    |
+|4    |System                     |                                         |               |0     |Normal      |197    |                                                                                    |
+|72   |postgres.exe               |                                         |               |0     |Normal      |2      |                                                                                    |
+|108  |Registry                   |                                         |               |0     |Normal      |4      |                                                                                    |
+|504  |smss.exe                   |                                         |               |0     |Above-Normal|2      |                                                                                    |
+|524  |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |7      |                                                                                    |
+|580  |Code.exe                   |                                         |               |0     |Normal      |7      |                                                                                    |
+|592  |chrome.exe                 |                                         |               |0     |Low         |14     |                                                                                    |
+|604  |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |18     |                                                                                    |
+|624  |fontdrvhost.exe            |Usermode Font Driver Host                |10.0.19041.1620|0     |Normal      |5      |                                                                                    |
+|668  |csrss.exe                  |                                         |               |0     |High        |12     |                                                                                    |
+|760  |wininit.exe                |                                         |               |0     |High        |1      |                                                                                    |
+|796  |Postman.exe                |                                         |               |0     |Normal      |29     |                                                                                    |
+|848  |TSVNCache.exe              |TortoiseSVN status cache                 |1.14.1.29085   |0     |Normal      |12     |                                                                                    |
+|884  |Skype.exe                  |Skype                                    |8.83.0.408     |0     |Normal      |29     |C:\Program Files\WindowsApps\Microsoft.SkypeApp_15.83.408.0_x86__kzf8qxf38zg5c\Skype|
+|904  |services.exe               |                                         |               |0     |Normal      |6      |                                                                                    |
+|924  |lsass.exe                  |                                         |               |0     |Normal      |9      |                                                                                    |
+|1016 |igfxHK.exe                 |                                         |               |0     |Normal      |2      |                                                                                    |
+|1040 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |13     |                                                                                    |
+|1072 |chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|1096 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |6      |                                                                                    |
+|1104 |ApplicationFrameHost.exe   |                                         |               |0     |Normal      |4      |                                                                                    |
+|1196 |ephost.integrity.exe       |                                         |               |0     |Normal      |23     |                                                                                    |
+|1296 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |1      |                                                                                    |
+|1340 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |2      |                                                                                    |
+|1376 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |5      |                                                                                    |
+|1444 |postgres.exe               |                                         |               |0     |Normal      |2      |                                                                                    |
+|1484 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |12     |                                                                                    |
+|1532 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |7      |                                                                                    |
+|1588 |tv_w32.exe                 |                                         |               |0     |Normal      |2      |                                                                                    |
+|1632 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |4      |                                                                                    |
+|1636 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |6      |                                                                                    |
+|1648 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |5      |                                                                                    |
+|1692 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |5      |                                                                                    |
+|1712 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |3      |                                                                                    |
+|1744 |YourPhone.exe              |                                         |               |0     |Normal      |24     |                                                                                    |
+|1800 |terabox.exe                |TeraBox                                  |1.6.2.1        |0     |Normal      |45     |C:\Users\Ricardo\AppData\Roaming\TeraBox                                            |
+|1816 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |2      |                                                                                    |
+|1844 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |2      |                                                                                    |
+|1860 |chrome.exe                 |                                         |               |0     |Normal      |9      |                                                                                    |
+|1876 |TeraBoxHost.exe            |TeraBoxHost                              |1.6.2.1        |0     |Normal      |14     |C:\Users\Ricardo\AppData\Roaming\TeraBox                                            |
+|1880 |Skype.exe                  |Skype                                    |8.83.0.408     |0     |Normal      |6      |C:\Program Files\WindowsApps\Microsoft.SkypeApp_15.83.408.0_x86__kzf8qxf38zg5c\Skype|
+|1888 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |2      |                                                                                    |
+|1896 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |5      |                                                                                    |
+|1912 |dllhost.exe                |COM Surrogate                            |10.0.19041.546 |0     |Normal      |2      |                                                                                    |
+|1932 |igfxCUIService.exe         |                                         |               |0     |Normal      |6      |                                                                                    |
+|1944 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |12     |                                                                                    |
+|1948 |Memory Compression         |                                         |               |0     |Normal      |54     |                                                                                    |
+|2020 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |3      |                                                                                    |
+|2060 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |4      |                                                                                    |
+|2068 |chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|2108 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |2      |                                                                                    |
+|2144 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |5      |                                                                                    |
+|2184 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |16     |                                                                                    |
+|2188 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |6      |                                                                                    |
+|2228 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |4      |                                                                                    |
+|2240 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |4      |                                                                                    |
+|2276 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |6      |                                                                                    |
+|2300 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |1      |                                                                                    |
+|2312 |chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|2316 |TeamViewer.exe             |TeamViewer                               |15.29.4.0      |0     |High        |46     |C:\Program Files (x86)\TeamViewer                                                   |
+|2320 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |10     |                                                                                    |
+|2332 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |7      |                                                                                    |
+|2388 |TeraBoxHost.exe            |TeraBoxHost                              |1.6.2.1        |0     |Normal      |5      |C:\Users\Ricardo\AppData\Roaming\TeraBox                                            |
+|2396 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |10     |                                                                                    |
+|2404 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |4      |                                                                                    |
+|2412 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |3      |                                                                                    |
+|2420 |chrome.exe                 |                                         |               |0     |Normal      |8      |                                                                                    |
+|2464 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |5      |                                                                                    |
+|2496 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |3      |                                                                                    |
+|2528 |chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|2640 |microsip.exe               |MicroSIP                                 |3.21.1.0       |0     |Normal      |7      |C:\Users\Ricardo\AppData\Local\MicroSIP                                             |
+|2644 |spoolsv.exe                |                                         |               |0     |Normal      |8      |                                                                                    |
+|2724 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |12     |                                                                                    |
+|2756 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |2      |                                                                                    |
+|2804 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |4      |                                                                                    |
+|2816 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |6      |                                                                                    |
+|2824 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |9      |                                                                                    |
+|2868 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |3      |                                                                                    |
+|2944 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |1      |                                                                                    |
+|3056 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |10     |                                                                                    |
+|3064 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |2      |                                                                                    |
+|3144 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |1      |                                                                                    |
+|3156 |ibguard.exe                |                                         |               |0     |Normal      |4      |                                                                                    |
+|3164 |epupdateserver.exe         |                                         |               |0     |Normal      |81     |                                                                                    |
+|3212 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |3      |                                                                                    |
+|3256 |epintegrationservice.exe   |                                         |               |0     |Normal      |66     |                                                                                    |
+|3264 |epsecurityservice.exe      |                                         |               |0     |Normal      |166    |                                                                                    |
+|3272 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |6      |                                                                                    |
+|3280 |pg_ctl.exe                 |                                         |               |0     |Normal      |2      |                                                                                    |
+|3304 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |4      |                                                                                    |
+|3340 |epupdateservice.exe        |                                         |               |0     |Normal      |19     |                                                                                    |
+|3352 |winlogon.exe               |                                         |               |0     |High        |4      |                                                                                    |
+|3356 |bdredline.exe              |                                         |               |0     |Normal      |3      |                                                                                    |
+|3364 |epprotectedservice.exe     |                                         |               |0     |Normal      |14     |                                                                                    |
+|3412 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |9      |                                                                                    |
+|3584 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |4      |                                                                                    |
+|3624 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |2      |                                                                                    |
+|3656 |TeamViewer_Service.exe     |                                         |               |0     |Normal      |20     |                                                                                    |
+|3696 |chrome.exe                 |                                         |               |0     |Low         |16     |                                                                                    |
+|3716 |chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|3732 |TeraBoxWebService.exe      |TeraBoxWebService                        |1.6.2.1        |0     |Normal      |12     |C:\Users\Ricardo\AppData\Roaming\TeraBox                                            |
+|3800 |dasHost.exe                |                                         |               |0     |Normal      |11     |                                                                                    |
+|3824 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |12     |                                                                                    |
+|3924 |ibserver.exe               |                                         |               |0     |Normal      |6      |                                                                                    |
+|3932 |SearchApp.exe              |                                         |               |0     |Normal      |29     |                                                                                    |
+|4276 |chrome.exe                 |                                         |               |0     |Low         |16     |                                                                                    |
+|4312 |fontdrvhost.exe            |Usermode Font Driver Host                |10.0.19041.1620|0     |Normal      |5      |                                                                                    |
+|4348 |postgres.exe               |                                         |               |0     |Normal      |3      |                                                                                    |
+|4372 |conhost.exe                |                                         |               |0     |Normal      |4      |                                                                                    |
+|4464 |PhotoshopCS6Portable.exe   |Adobe Photoshop CS6 Portable             |               |0     |Normal      |1      |F:\App\Photoshop CS6\AutoPlay\Docs                                                  |
+|4776 |chrome.exe                 |                                         |               |0     |Low         |16     |                                                                                    |
+|4864 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |5      |                                                                                    |
+|5112 |postgres.exe               |                                         |               |0     |Normal      |3      |                                                                                    |
+|5228 |RuntimeBroker.exe          |                                         |               |0     |Normal      |3      |                                                                                    |
+|5616 |chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|5628 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |3      |                                                                                    |
+|5720 |chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|5816 |postgres.exe               |                                         |               |0     |Normal      |2      |                                                                                    |
+|5820 |postgres.exe               |                                         |               |0     |Normal      |2      |                                                                                    |
+|5836 |postgres.exe               |                                         |               |0     |Normal      |2      |                                                                                    |
+|5860 |postgres.exe               |                                         |               |0     |Normal      |2      |                                                                                    |
+|6268 |chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|6356 |chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|6376 |jusched.exe                |Java Update Scheduler                    |2.8.331.9      |0     |Normal      |1      |C:\Program Files (x86)\Common Files\Java\Java Update                                |
+|6468 |ShellExperienceHost.exe    |                                         |               |0     |Normal      |22     |                                                                                    |
+|6524 |RuntimeBroker.exe          |                                         |               |0     |Normal      |1      |                                                                                    |
+|6564 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |4      |                                                                                    |
+|6600 |chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|6724 |RuntimeBroker.exe          |                                         |               |0     |Normal      |2      |                                                                                    |
+|6860 |PresentationFontCache.exe  |                                         |               |0     |Normal      |4      |                                                                                    |
+|6916 |chrome.exe                 |                                         |               |0     |Normal      |15     |                                                                                    |
+|7088 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |3      |                                                                                    |
+|7096 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |6      |                                                                                    |
+|7116 |SystemSettings.exe         |                                         |               |0     |Normal      |17     |                                                                                    |
+|7192 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |9      |                                                                                    |
+|7204 |dllhost.exe                |COM Surrogate                            |10.0.19041.546 |0     |Normal      |6      |                                                                                    |
+|7228 |Code.exe                   |                                         |               |0     |Normal      |30     |                                                                                    |
+|7244 |chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|7304 |core.exe                   |                                         |               |0     |Normal      |23     |                                                                                    |
+|7348 |epconsole.exe              |                                         |               |0     |Normal      |28     |                                                                                    |
+|7420 |chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|7520 |Postman.exe                |                                         |               |0     |Normal      |9      |                                                                                    |
+|7788 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |9      |                                                                                    |
+|7804 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |10     |                                                                                    |
+|7860 |Postman.exe                |                                         |               |0     |Normal      |13     |                                                                                    |
+|7940 |chrome.exe                 |                                         |               |0     |Low         |16     |                                                                                    |
+|7988 |OneDrive.exe               |                                         |               |0     |Normal      |26     |                                                                                    |
+|8032 |chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|8040 |chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|8244 |RtkNGUI64.exe              |                                         |               |0     |Normal      |8      |                                                                                    |
+|8252 |TextInputHost.exe          |                                         |               |0     |Normal      |10     |                                                                                    |
+|8288 |chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|8556 |delphi32.exe               |Delphi-32 Development Environment        |7.0.8.1        |0     |Normal      |9      |C:\Program Files (x86)\Borland\Delphi7\Bin                                          |
+|8728 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |11     |                                                                                    |
+|8772 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |4      |                                                                                    |
+|8844 |SearchIndexer.exe          |Indexador do Microsoft Windows Search    |7.0.19041.1620 |0     |Normal      |18     |                                                                                    |
+|8952 |dwm.exe                    |                                         |               |0     |High        |14     |                                                                                    |
+|9120 |chrome.exe                 |                                         |               |0     |Normal      |15     |                                                                                    |
+|9184 |chrome.exe                 |                                         |               |0     |Above-Normal|19     |                                                                                    |
+|9280 |chrome.exe                 |                                         |               |0     |Low         |17     |                                                                                    |
+|9368 |chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|9384 |chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|9600 |chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|9720 |chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|9728 |chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|9896 |svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |3      |                                                                                    |
+|9964 |WSHelper.exe               |Wondershare Studio                       |2.5.3.1        |0     |Normal      |7      |C:\Program Files (x86)\Common Files\Wondershare\Wondershare Helper Compact          |
+|10228|chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|10320|taskhostw.exe              |                                         |               |0     |Normal      |8      |                                                                                    |
+|10620|svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |9      |                                                                                    |
+|10692|SecurityHealthService.exe  |                                         |               |0     |Normal      |13     |                                                                                    |
+|10724|chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|10732|chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|10740|chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|10840|chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|10960|audiodg.exe                |                                         |               |0     |Normal      |14     |                                                                                    |
+|10968|chrome.exe                 |                                         |               |0     |Low         |16     |                                                                                    |
+|11132|Skype.exe                  |Skype                                    |8.83.0.408     |0     |Normal      |10     |C:\Program Files\WindowsApps\Microsoft.SkypeApp_15.83.408.0_x86__kzf8qxf38zg5c\Skype|
+|11228|igfxEM.exe                 |                                         |               |0     |Normal      |4      |                                                                                    |
+|11252|svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |7      |                                                                                    |
+|11336|GitHubDesktop.exe          |                                         |               |0     |Normal      |29     |                                                                                    |
+|11348|SgrmBroker.exe             |                                         |               |0     |Normal      |8      |                                                                                    |
+|11364|svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |4      |                                                                                    |
+|11532|svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |2      |                                                                                    |
+|11580|chrome.exe                 |                                         |               |0     |Normal      |16     |                                                                                    |
+|11588|MoUsoCoreWorker.exe        |                                         |               |0     |Normal      |7      |                                                                                    |
+|11604|svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |1      |                                                                                    |
+|11668|Postman.exe                |                                         |               |0     |Normal      |19     |                                                                                    |
+|11680|svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |14     |                                                                                    |
+|11708|chrome.exe                 |                                         |               |0     |Normal      |15     |                                                                                    |
+|11796|core.exe                   |                                         |               |0     |High        |100    |                                                                                    |
+|11824|chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|11860|chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|11940|chrome.exe                 |                                         |               |0     |Normal      |15     |                                                                                    |
+|11956|chrome.exe                 |                                         |               |0     |Normal      |15     |                                                                                    |
+|12064|csw.exe                    |                                         |               |0     |Normal      |6      |S:\PROSYS\CS                                                                        |
+|12076|chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|12080|SearchApp.exe              |                                         |               |0     |Normal      |51     |                                                                                    |
+|12292|chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|12344|RuntimeBroker.exe          |                                         |               |0     |Normal      |28     |                                                                                    |
+|12364|LockApp.exe                |                                         |               |0     |Normal      |11     |                                                                                    |
+|12488|SecurityHealthSystray.exe  |                                         |               |0     |Normal      |1      |                                                                                    |
+|12532|chrome.exe                 |                                         |               |0     |Normal      |27     |                                                                                    |
+|12540|svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |3      |                                                                                    |
+|12656|chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|12944|svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |3      |                                                                                    |
+|13068|chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|13136|sihost.exe                 |                                         |               |0     |Normal      |12     |                                                                                    |
+|13520|chrome.exe                 |                                         |               |0     |Normal      |13     |                                                                                    |
+|13532|explorer.exe               |Windows Explorer                         |10.0.19041.1682|0     |Normal      |88     |                                                                                    |
+|13592|ctfmon.exe                 |Carregador CTF                           |10.0.19041.1   |0     |High        |9      |                                                                                    |
+|13636|chrome.exe                 |                                         |               |0     |Low         |14     |                                                                                    |
+|13728|chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|13736|UserOOBEBroker.exe         |                                         |               |0     |Normal      |1      |                                                                                    |
+|13920|chrome.exe                 |                                         |               |0     |Normal      |15     |                                                                                    |
+|13956|TSVNCache.exe              |TortoiseSVN status cache                 |1.14.1.29085   |0     |Normal      |22     |                                                                                    |
+|13960|chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|14020|tv_x64.exe                 |                                         |               |0     |Normal      |2      |                                                                                    |
+|14116|RuntimeBroker.exe          |                                         |               |0     |Normal      |3      |                                                                                    |
+|14176|TeraBoxRender.exe          |TeraBoxRender                            |2.0.1.1        |0     |Normal      |10     |C:\Users\Ricardo\AppData\Roaming\TeraBox                                            |
+|14180|RuntimeBroker.exe          |                                         |               |0     |Normal      |1      |                                                                                    |
+|14196|svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |5      |                                                                                    |
+|14216|StartMenuExperienceHost.exe|                                         |               |0     |Normal      |7      |                                                                                    |
+|14344|chrome.exe                 |                                         |               |0     |Normal      |17     |                                                                                    |
+|14440|chrome.exe                 |                                         |               |0     |Low         |17     |                                                                                    |
+|14468|Skype.exe                  |Skype                                    |8.83.0.408     |0     |Normal      |7      |C:\Program Files\WindowsApps\Microsoft.SkypeApp_15.83.408.0_x86__kzf8qxf38zg5c\Skype|
+|14548|Skype.exe                  |Skype                                    |8.83.0.408     |0     |Above-Normal|13     |C:\Program Files\WindowsApps\Microsoft.SkypeApp_15.83.408.0_x86__kzf8qxf38zg5c\Skype|
+|14700|chrome.exe                 |                                         |               |0     |Low         |17     |                                                                                    |
+|14788|chrome.exe                 |                                         |               |0     |Low         |17     |                                                                                    |
+|14820|Cortana.exe                |                                         |               |0     |Normal      |21     |                                                                                    |
+|15012|chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|15040|chrome.exe                 |                                         |               |0     |Low         |19     |                                                                                    |
+|15132|notepad.exe                |Bloco de notas                           |10.0.19041.1   |0     |Normal      |1      |                                                                                    |
+|15156|RuntimeBroker.exe          |                                         |               |0     |Normal      |3      |                                                                                    |
+|15160|Skype.exe                  |Skype                                    |8.83.0.408     |0     |Normal      |49     |C:\Program Files\WindowsApps\Microsoft.SkypeApp_15.83.408.0_x86__kzf8qxf38zg5c\Skype|
+|15256|csrss.exe                  |                                         |               |0     |High        |14     |                                                                                    |
+|15260|svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |7      |                                                                                    |
+|15280|RuntimeBroker.exe          |                                         |               |0     |Normal      |1      |                                                                                    |
+|15340|chrome.exe                 |                                         |               |0     |Normal      |9      |                                                                                    |
+|15468|chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|15684|Postman.exe                |                                         |               |0     |Normal      |6      |                                                                                    |
+|15692|GitHubDesktop.exe          |                                         |               |0     |Normal      |10     |                                                                                    |
+|15724|chrome.exe                 |                                         |               |0     |Low         |17     |                                                                                    |
+|15924|Postman.exe                |                                         |               |0     |Normal      |23     |                                                                                    |
+|16024|chrome.exe                 |                                         |               |0     |Normal      |15     |                                                                                    |
+|16072|SearchProtocolHost.exe     |Microsoft Windows Search Protocol Host   |7.0.19041.1620 |0     |Low         |5      |                                                                                    |
+|16124|GitHubDesktop.exe          |                                         |               |0     |Low         |21     |                                                                                    |
+|16180|SearchApp.exe              |                                         |               |0     |Normal      |23     |                                                                                    |
+|16368|Postman.exe                |                                         |               |0     |Above-Normal|14     |                                                                                    |
+|16712|RuntimeBroker.exe          |                                         |               |0     |Normal      |3      |                                                                                    |
+|16852|Calculator.exe             |                                         |               |0     |Normal      |21     |                                                                                    |
+|17128|svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |3      |                                                                                    |
+|17256|RuntimeBroker.exe          |                                         |               |0     |Normal      |1      |                                                                                    |
+|17376|Code.exe                   |                                         |               |0     |Normal      |8      |                                                                                    |
+|17436|Code.exe                   |                                         |               |0     |Above-Normal|16     |                                                                                    |
+|17544|Code.exe                   |                                         |               |0     |Normal      |9      |                                                                                    |
+|17576|Code.exe                   |                                         |               |0     |Low         |17     |                                                                                    |
+|17648|Photoshop.exe              |Adobe Photoshop CS6                      |13.0.0.0       |0     |Normal      |19     |F:\App\Photoshop CS6\AutoPlay\Docs\App\PhotoshopCS6                                 |
+|17712|bds.exe                    |Embarcadero RAD Studio for Windows       |25.0.31059.3231|0     |Normal      |39     |C:\Program Files (x86)\Embarcadero\Studio\19.0\bin                                  |
+|17772|notepad.exe                |Bloco de notas                           |10.0.19041.1   |0     |Normal      |1      |                                                                                    |
+|17844|Code.exe                   |                                         |               |0     |Normal      |14     |                                                                                    |
+|17892|Code.exe                   |                                         |               |0     |Normal      |21     |                                                                                    |
+|17980|Code.exe                   |                                         |               |0     |Normal      |12     |                                                                                    |
+|18076|Code.exe                   |                                         |               |0     |Normal      |12     |                                                                                    |
+|18128|RuntimeBroker.exe          |                                         |               |0     |Normal      |6      |                                                                                    |
+|18632|chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|18652|svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |4      |                                                                                    |
+|18868|chrome.exe                 |                                         |               |0     |Low         |14     |                                                                                    |
+|18892|chrome.exe                 |                                         |               |0     |Normal      |15     |                                                                                    |
+|18920|chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|19420|svchost.exe                |Processo de Host para Serviços do Windows|10.0.19041.1566|0     |Normal      |4      |                                                                                    |
+|19568|RICKPixQRCodeD7.exe        |                                         |               |0     |Normal      |2      |D:\ProjetoPSB\PS\Cloud\Comum\modules\RICKPixQRCode\sample\D7\lib                    |
+|19648|Microsoft.Photos.exe       |                                         |               |0     |Normal      |16     |                                                                                    |
+|19760|GitHubDesktop.exe          |                                         |               |0     |Above-Normal|15     |                                                                                    |
+|19876|chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+|20096|chrome.exe                 |                                         |               |0     |Low         |15     |                                                                                    |
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Assembler Information:
+--------------------------------------------------------------------------------------------------
+; View.Principal.TPagePrincipal.btGerarClick (Line=128 - Offset=51)
+; -----------------------------------------------------------------
+0053BDFD  call    dword ptr [ecx+$0C]
+0053BE00  mov     eax, [ebp+$FFFFFF58]
+0053BE06  lea     edx, [ebp+$FFFFFF5C]
+0053BE0C  mov     ecx, [eax]
+0053BE0E  call    dword ptr [ecx+$14]
+0053BE11  jmp     View.Principal.TPagePrincipal.btGerarClick (Line=144)
+;
+; Line=141 - Offset=64
+; --------------------
+0053BE13  mov     ecx, $0053C02C                                         ; 'Opção não configurada'
+0053BE18  mov     dl, $01
+0053BE1A  mov     eax, dword ptr [Exception]
+0053BE1F  call    SysUtils.Exception.Create
+0053BE24  call    System._RaiseExcept                                    ; <-- EXCEPTION
+;
+; Line=144 - Offset=67
+; --------------------
+0053BE29  lea     edx, [ebp+$FFFFFF20]
+0053BE2F  mov     eax, [ebx+$0358]
+0053BE35  mov     ecx, [eax]
+0053BE37  call    dword ptr [ecx+$20]
+0053BE3A  mov     eax, [ebp+$FFFFFF20]
+0053BE40  mov     edx, [eax]
+0053BE42  call    dword ptr [edx+$10]
+0053BE45  push    eax
+0053BE46  mov     eax, [ebx+$02F8]
+0053BE4C  mov     eax, [eax+$0168]
+
+Registers:
+-----------------------------
+EAX: 02C12FA0   EDI: 0000000F
+EBX: 02C1219C   ESI: 004870E8
+ECX: 00000000   ESP: 0019FA34
+EDX: 0053BE29   EIP: 0053BE24
+
+Stack:               Memory Dump:
+------------------   ---------------------------------------------------------------------------
+0019FA34: 0019FD20   0053BE24: E8 03 88 EC FF 8D 95 20 FF FF FF 8B 83 58 03 00  ....... .....X..
+0019FA38: 00404560   0053BE34: 00 8B 08 FF 51 20 8B 85 20 FF FF FF 8B 10 FF 52  ....Q .. ......R
+0019FA3C: 0019FB2C   0053BE44: 10 50 8B 83 F8 02 00 00 8B 80 68 01 00 00 E8 D9  .P........h.....
+0019FA40: 004870E8   0053BE54: EE F3 FF 5A 8B 08 FF 51 08 8D 95 1C FF FF FF 8B  ...Z...Q........
+0019FA44: 02BDDD28   0053BE64: 83 58 03 00 00 8B 08 FF 51 24 8B 95 1C FF FF FF  .X......Q$......
+0019FA48: 00000000   0053BE74: 8B 83 34 03 00 00 8B 80 20 02 00 00 8B 08 FF 51  ..4..... ......Q
+0019FA4C: 00000000   0053BE84: 38 33 C0 5A 59 59 64 89 10 68 1E C0 53 00 8D 85  83.ZYYd..h..S...
+0019FA50: 00000000   0053BE94: 1C FF FF FF E8 3B 8E EC FF 8D 85 20 FF FF FF E8  .....;..... ....
+0019FA54: 00000000   0053BEA4: D0 AB EC FF 8D 85 24 FF FF FF BA 05 00 00 00 E8  ......$.........
+0019FA58: 00000000   0053BEB4: 44 8E EC FF 8D 85 38 FF FF FF 8B 15 9C 3E 4E 00  D.....8......>N.
+0019FA5C: 00000000   0053BEC4: B9 06 00 00 00 E8 AA 99 EC FF 8D 85 50 FF FF FF  ............P...
+0019FA60: 00000000   0053BED4: E8 9F AB EC FF 8D 85 54 FF FF FF 8B 15 30 3F 4E  .......T.....0?N
+0019FA64: 00000000   0053BEE4: 00 B9 02 00 00 00 E8 89 99 EC FF 8D 85 5C FF FF  .............\..
+0019FA68: 00000000   0053BEF4: FF E8 7E AB EC FF 8D 85 60 FF FF FF E8 D3 8D EC  ..~.....`.......
+0019FA6C: 00000000   0053BF04: FF 8D 85 64 FF FF FF 8B 15 9C 3E 4E 00 B9 02 00  ...d......>N....
+0019FA70: 00000000   0053BF14: 00 00 E8 5D 99 EC FF 8D 85 6C FF FF FF E8 52 AB  ...].....l....R.
+
+
+
