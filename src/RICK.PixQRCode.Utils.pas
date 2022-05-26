@@ -20,7 +20,9 @@ type
     class function CopyReverse(AValue: String; ACount : Integer) : String; overload;
     class function CopyData(AValue: String; ACount, AIndex : Integer) : String; overload;
     class function CopyData(AValue: String; ACount : Integer) : String; overload;
-    class function RemoveAcento(AValue : string) : string;
+    class function RemoveAcento(AValue : string) : string; overload;
+    class function RemoveAcento(Const AValue : string;
+      Const aExtras: boolean) : string; overload;
     class function CRC16CCITT(AValeu: string): WORD;
     class function GerarCRCPix(Const AValue: string) :string;
   end;
@@ -302,6 +304,39 @@ begin
   if (I = 0) or (I > (Length(LNomeDominio) - 2)) then
     Exit;
   Result := IsValidCaracterEmail(LNomeEmail) and IsValidCaracterEmail(LNomeDominio);
+end;
+
+class function TRICKPixQrCodeUtils.RemoveAcento(Const AValue: string;
+  Const aExtras: boolean): string;
+const
+  //Lista de caracteres especiais
+  _ESPECIAL: array[1..38] of String = ('á', 'à', 'ã', 'â', 'ä','Á', 'À', 'Ã', 'Â', 'Ä',
+                                     'é', 'è','É', 'È','í', 'ì','Í', 'Ì',
+                                     'ó', 'ò', 'ö','õ', 'ô','Ó', 'Ò', 'Ö', 'Õ', 'Ô',
+                                     'ú', 'ù', 'ü','Ú','Ù', 'Ü','ç','Ç','ñ','Ñ');
+  //Lista de caracteres para troca
+  _NORMAL: array[1..38] of String = ('a', 'a', 'a', 'a', 'a','A', 'A', 'A', 'A', 'A',
+                                     'e', 'e','E', 'E','i', 'i','I', 'I',
+                                     'o', 'o', 'o','o', 'o','O', 'O', 'O', 'O', 'O',
+                                     'u', 'u', 'u','u','u', 'u','c','C','n', 'N');
+  //Lista de Caracteres Extras
+  _EXTRAS: array[1..49] of string = ('<','>','!','@','#','$','%','¨','&','*',
+                                     '(',')','_','+','=','{','}','[',']','?',
+                                     ';',':',',','|','*','"','~','^','´','`',
+                                     '¨','æ','Æ','ø','£','Ø','ƒ','ª','º','¿',
+                                     '®','½','¼','ß','µ','þ','ý','Ý', '-');
+var
+  LTexto : string;
+  I : Integer;
+begin
+   LTexto := AValue;
+   for I:=1 to 38 do
+     LTexto := StringReplace(LTexto, _ESPECIAL[I], _NORMAL[I], [rfreplaceall]);
+   //De acordo com o parâmetro aExtras, elimina caracteres extras.
+   if (aExtras) then
+     for I:=1 to 49 do
+       LTexto := StringReplace(LTexto, _EXTRAS[I], '', [rfreplaceall]);
+   Result := LTexto;
 end;
 
 class function TRICKPixQrCodeUtils.RemoveAcento(AValue: string): string;
