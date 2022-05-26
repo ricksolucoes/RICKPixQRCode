@@ -153,6 +153,12 @@ var
 begin
   Result:= Self;
 
+  {$IF CompilerVersion >= 23.0} // 23 is Delphi XE2
+  if FTipoChavePix = TTipoChave.Telefone then
+  {$ELSE} // VCL prior to XE2
+  if FTipoChavePix = tpTelefone then
+  {$IFEND}
+    raise Exception.Create('Erro ao utilizar a chave de telefone. Gere uma chave aleatória.');
 
   {$IF CompilerVersion >= 23.0} // 23 is Delphi XE2
   if FNome.Trim.IsEmpty then
@@ -346,13 +352,8 @@ end;
 function TRICKPixQRCode.Identificador(AValue: string): iPixQRCodeDados;
 begin
   Result:= Self;
-
-  {$IF CompilerVersion >= 23.0} // 23 is Delphi XE2
-  FIdentificador:= AValue.Trim;
-  {$ELSE} // VCL prior to XE2
-  FIdentificador:= Trim(AValue);
-  {$IFEND}
-
+  FIdentificador:= TRICKPixQrCodeUtils.RemoveAcento(AValue, True);
+  FIdentificador:= StringReplace(FIdentificador, ' ', EmptyStr, [rfReplaceAll, rfIgnoreCase]);
   FIdentificador:= TRICKPixQrCodeUtils.CopyData(FIdentificador, 25);
 
 end;
@@ -417,7 +418,7 @@ begin
   {$IF CompilerVersion >= 23.0} // 23 is Delphi XE2
       if not LChave.Contains('+55') then
   {$ELSE} // VCL prior to XE2
-      if Pos('+55', LChave) <> 0 then
+      if Pos('+55', LChave) = 0 then
   {$IFEND}
         LChave:= Format('+55%s', [LChave]);
 
@@ -490,7 +491,7 @@ function TRICKPixQRCode.Cidade(AValue: string): iPixQRCodeDados;
 begin
   Result:= Self;
   FCidade:= TRICKPixQrCodeUtils.CopyData(
-              TRICKPixQrCodeUtils.RemoveAcento(AValue),
+              TRICKPixQrCodeUtils.RemoveAcento(AValue, True),
               15);
 
 end;
@@ -614,6 +615,13 @@ begin
   Result:= Self;
 
   {$IF CompilerVersion >= 23.0} // 23 is Delphi XE2
+  if FTipoChavePix = TTipoChave.Telefone then
+  {$ELSE} // VCL prior to XE2
+  if FTipoChavePix = tpTelefone then
+  {$IFEND}
+    raise Exception.Create('Erro ao utilizar a chave de telefone. Gere uma chave aleatória.');
+
+  {$IF CompilerVersion >= 23.0} // 23 is Delphi XE2
   if FNome.Trim.IsEmpty then
   {$ELSE} // VCL prior to XE2
   if Trim(FNome) = EmptyStr then
@@ -649,7 +657,7 @@ function TRICKPixQRCode.Nome(AValue: string): iPixQRCodeDados;
 begin
   Result:= Self;
   FNome:= TRICKPixQrCodeUtils.CopyData(
-            TRICKPixQrCodeUtils.RemoveAcento(AValue),
+            TRICKPixQrCodeUtils.RemoveAcento(AValue, True),
             25);
 end;
 
@@ -727,8 +735,8 @@ begin
                                         [rfReplaceAll, rfIgnoreCase]),
                           0);
 
-  FValor:= FloatToStr(LValor);
 
+  FValor:= FormatFloat('#.00' , LValor);
   FValor:= StringReplace(FValor,',', '.',[rfReplaceAll, rfIgnoreCase]);
 end;
 
